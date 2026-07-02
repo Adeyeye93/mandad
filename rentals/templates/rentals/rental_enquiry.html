@@ -1,0 +1,228 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rental Enquiry{% if product %} — {{ product.name }}{% endif %} — Mandad Medical Supply</title>
+  <meta name="description" content="Submit a rental enquiry for medical equipment. Free delivery throughout Northern Virginia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/rentals.css' %}" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+      14535 Jefferson Davis Highway, Woodbridge, VA 22191
+      <div class="topbar-sep"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Mon–Fri 9AM–6PM · Sat 10AM–4PM
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        (703) 910-6264
+      </div>
+      <a href="https://www.facebook.com/profile.php?id=61566352520226" target="_blank" rel="noopener" class="topbar-social" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/mandadmedicalsupply/" target="_blank" rel="noopener" class="topbar-social" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+
+      <div class="topbar-badge">Free Delivery on Rentals</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="{% url 'core:home' %}" class="nav-logo">
+      <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
+    </a>
+    <form method="get" action="{% url 'products:list' %}" class="nav-search">
+      <input type="text" name="q" class="nav-search-input" placeholder="Search products…" />
+      <button type="submit" class="nav-search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </form>
+    <ul class="nav-links">
+      <li><a href="{% url 'core:home' %}"     class="nav-link">Home</a></li>
+      <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
+      <li><a href="{% url 'rentals:list' %}"  class="nav-link active">Rentals</a></li>
+      <li><a href="{% url 'core:about' %}"    class="nav-link">About</a></li>
+      <li><a href="{% url 'core:accra' %}"    class="nav-link">Accra Branch</a></li>
+      <li><a href="{% url 'core:contact' %}"  class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="{% url 'rentals:list' %}" class="btn-nav-outline">Back to Rentals</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb">
+      <a href="{% url 'core:home' %}">Home</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <a href="{% url 'rentals:list' %}">Rentals</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      {% if product %}{{ product.name }}{% else %}Rental Enquiry{% endif %}
+    </div>
+  </div>
+
+  <!-- ENQUIRY FORM PAGE -->
+  <div style="padding:48px;background:var(--off-white);min-height:70vh;">
+    <div style="max-width:700px;margin:0 auto;">
+
+      <div style="margin-bottom:32px;">
+        <div class="section-label">Rental Enquiry</div>
+        <h1 style="font-size:28px;font-weight:800;color:var(--dark);letter-spacing:-.3px;margin-bottom:8px;">
+          {% if product %}Rent: {{ product.name }}{% else %}Request Equipment Rental{% endif %}
+        </h1>
+        <p style="font-size:14px;color:var(--text-muted);">Fill in your details below and we'll confirm availability and pricing within 2 hours.</p>
+      </div>
+
+      {% if product %}
+      <!-- Product strip -->
+      <div style="background:var(--blue-light);border:1.5px solid var(--blue-mid);border-radius:var(--radius-lg);padding:16px 20px;display:flex;align-items:center;gap:16px;margin-bottom:28px;">
+        <div style="width:60px;height:60px;background:var(--white);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--blue-mid);">
+          {% if product.main_image %}
+            <img src="{{ product.main_image.url }}" alt="{{ product.name }}" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius);" />
+          {% else %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:32px;height:32px;color:var(--blue);"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
+          {% endif %}
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:700;color:var(--dark);">{{ product.name }}</div>
+          {% if product.brand %}<div style="font-size:11px;color:var(--blue-dark);margin-top:2px;">{{ product.brand.name }}</div>{% endif %}
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          {% if product.rental_monthly %}
+            <div style="font-size:16px;font-weight:800;color:var(--blue-dark);">${{ product.rental_monthly }}/mo</div>
+            <div style="font-size:11px;color:var(--text-muted);">monthly rate</div>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Form -->
+      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--radius-xl);padding:32px;">
+        <form method="post" action="{% url 'rentals:enquiry' %}">
+          {% csrf_token %}
+
+          {% if product %}
+            <input type="hidden" name="product_id"   value="{{ product.pk }}" />
+            <input type="hidden" name="product_name" value="{{ product.name }}" />
+          {% else %}
+            <div class="form-group full" style="margin-bottom:16px;">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">Equipment Needed</label>
+              <input type="text" name="product_name" class="form-input" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;" placeholder="e.g. Lift chair, power scooter…" required />
+            </div>
+          {% endif %}
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">First Name <span style="color:var(--red);">*</span></label>
+              <input type="text" name="first_name" class="form-input" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">Last Name <span style="color:var(--red);">*</span></label>
+              <input type="text" name="last_name" class="form-input" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;" placeholder="Smith" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">Phone Number <span style="color:var(--red);">*</span></label>
+              <input type="tel" name="phone" class="form-input" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;" placeholder="(703) 000-0000" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">Email Address <span style="color:var(--red);">*</span></label>
+              <input type="email" name="email" class="form-input" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;" placeholder="john@email.com" required />
+            </div>
+            <div class="form-group" style="grid-column:1/-1;">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">Delivery Address</label>
+              <input type="text" name="address" class="form-input" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;" placeholder="Street address, Woodbridge, VA" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">Rental Duration</label>
+              <select name="duration" class="form-select" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;appearance:none;background:var(--white);cursor:pointer;">
+                <option value="weekly">Weekly</option>
+                <option value="monthly" selected>Monthly (most popular)</option>
+                <option value="3month">3+ Months (best rate)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">Preferred Start Date</label>
+              <input type="date" name="preferred_start" class="form-input" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;" />
+            </div>
+            <div class="form-group" style="grid-column:1/-1;">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">Delivery Method</label>
+              <div class="delivery-opts">
+                <div class="delivery-opt selected" onclick="selectDelivery(this)">
+                  <div class="delivery-radio"><div class="delivery-radio-dot"></div></div>
+                  <div><div class="delivery-opt-name">Home Delivery &amp; Setup</div><div class="delivery-opt-sub">Free — we deliver and set up in your home</div></div>
+                  <div class="delivery-opt-price">Free</div>
+                  <input type="radio" name="delivery_method" value="delivery" checked style="display:none;" />
+                </div>
+                <div class="delivery-opt" onclick="selectDelivery(this)">
+                  <div class="delivery-radio"><div class="delivery-radio-dot"></div></div>
+                  <div><div class="delivery-opt-name">Pick Up In Store</div><div class="delivery-opt-sub">14535 Jefferson Davis Highway, Woodbridge, VA 22191</div></div>
+                  <div class="delivery-opt-price">Free</div>
+                  <input type="radio" name="delivery_method" value="pickup" style="display:none;" />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">How did you hear about us?</label>
+              <select name="how_heard" class="form-select" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;appearance:none;background:var(--white);cursor:pointer;">
+                <option value="">Select…</option>
+                <option>Google Search</option>
+                <option>Doctor / Therapist Referral</option>
+                <option>Friend or Family</option>
+                <option>Facebook / Social Media</option>
+                <option>Walked past the store</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group" style="grid-column:1/-1;">
+              <label class="form-label" style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;">Additional Notes</label>
+              <textarea name="notes" rows="3" style="width:100%;padding:11px 14px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);outline:none;resize:vertical;font-family:inherit;" placeholder="Any special requirements, access restrictions, or questions…"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-rent-now" style="width:100%;padding:14px;margin-top:20px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:9px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            Submit Rental Enquiry
+          </button>
+          <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px;line-height:1.5;">
+            We'll call or email you within 2 business hours to confirm availability and finalise your rental. No payment required to submit an enquiry.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 Mandad Medical Supply LLC. All rights reserved. Woodbridge, Virginia.</p>
+      <div class="footer-links-row">
+        <a href="{% url 'core:about' %}"    class="footer-link-sm">About Us</a>
+        <a href="{% url 'products:list' %}" class="footer-link-sm">Products</a>
+        <a href="{% url 'rentals:list' %}"  class="footer-link-sm">Rentals</a>
+        <a href="{% url 'core:contact' %}"  class="footer-link-sm">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function selectDelivery(el) {
+      document.querySelectorAll('.delivery-opt').forEach(d => d.classList.remove('selected'));
+      el.classList.add('selected');
+      el.querySelector('input[type=radio]').checked = true;
+    }
+  </script>
+
+  <script src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>

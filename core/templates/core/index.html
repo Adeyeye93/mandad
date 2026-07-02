@@ -1,0 +1,717 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mandad Medical Supply — Woodbridge, Virginia</title>
+  <meta name="description" content="Durable medical equipment in Woodbridge, VA. Lift chairs, power scooters, wheelchairs. Rental and financing available." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+</head>
+<body>
+
+  <!-- ══════════════ TOP BAR ══════════════ -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <span>14535 Jefferson Davis Highway, Woodbridge, VA 22191</span>
+      <div class="topbar-sep"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Mon–Fri 9AM–6PM · Sat 10AM–4PM</span>
+      <div class="topbar-sep"></div>
+      <a href="mailto:mandadmed@comcast.net">mandadmed@comcast.net</a>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        (703) 910-6264
+      </div>
+      <a href="https://www.facebook.com/profile.php?id=61566352520226" target="_blank" rel="noopener" class="topbar-social" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/mandadmedicalsupply/" target="_blank" rel="noopener" class="topbar-social" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+
+      <div class="topbar-badge">Free Delivery Available</div>
+    </div>
+  </div>
+
+  <!-- ══════════════ NAV ══════════════ -->
+  <nav>
+    <a href="{% url 'core:home' %}" class="nav-logo">
+      <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
+    </a>
+
+    <form method="get" action="{% url 'products:list' %}" class="nav-search">
+      <input type="text" name="q" class="nav-search-input" placeholder="Search lift chairs, wheelchairs…" />
+      <button type="submit" class="nav-search-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </form>
+
+    <ul class="nav-links">
+      <li><a href="{% url 'core:home' %}" class="nav-link active">Home</a></li>
+      <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
+      <li><a href="{% url 'rentals:list' %}" class="nav-link">Rentals</a></li>
+      <li><a href="{% url 'core:about' %}" class="nav-link">About Us</a></li>
+      <li><a href="{% url 'core:accra' %}" class="nav-link">Accra Branch</a></li>
+      <li><a href="{% url 'core:contact' %}" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="{% url 'core:contact' %}" class="btn-outline">Get a Quote</a>
+      <a href="{% url 'quotes:cart' %}" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        Quote Cart
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══════════════ CATEGORY BAR ══════════════ -->
+  <div class="cat-bar">
+    <a href="{% url 'products:list' %}" class="cat-bar-item active">All Categories</a>
+    {% for category in categories %}
+      <a href="{% url 'products:list' %}?category={{ category.slug }}" class="cat-bar-item">{{ category.name }}</a>
+    {% endfor %}
+  </div>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <div class="hero">
+
+    <!-- Slider -->
+    <div class="hero-slider" id="slider">
+      <!-- Slide 1 -->
+      <div class="hero-slide active">
+        <div class="hero-slide-bg slide-bg-1">
+          <div class="slide-content">
+            <div class="slide-tag">⭐ Best Seller</div>
+            <h1 class="slide-title">Premium Lift Chairs<br /><em>Comfort & Independence</em></h1>
+            <p class="slide-desc">Industry-leading lift chairs from Golden, Pride, and Journey. Financing available with approved credit — own yours today.</p>
+            <div class="slide-actions">
+              <a href="{% url 'products:list' %}?category=lift-chairs" class="btn-slide-primary">
+                Shop Lift Chairs
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="{% url 'rentals:list' %}" class="btn-slide-secondary">View Rental Options</a>
+            </div>
+          </div>
+          <div class="slide-product-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/><line x1="12" y1="12" x2="12.01" y2="12"/></svg>
+          </div>
+          <div class="slider-dots">
+            <div class="slider-dot active" onclick="goSlide(0)"></div>
+            <div class="slider-dot" onclick="goSlide(1)"></div>
+            <div class="slider-dot" onclick="goSlide(2)"></div>
+          </div>
+          <div class="slider-arrows">
+            <button class="slider-arrow" onclick="prevSlide()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="slider-arrow" onclick="nextSlide()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg slide-bg-2">
+          <div class="slide-content">
+            <div class="slide-tag">🛴 Most Popular</div>
+            <h1 class="slide-title">Power Scooters<br /><em>Move With Freedom</em></h1>
+            <p class="slide-desc">Regain independence with our selection of 3-wheel and 4-wheel power scooters. Available for purchase or rental.</p>
+            <div class="slide-actions">
+              <a href="{% url 'products:list' %}?category=power-scooters" class="btn-slide-primary">
+                Shop Scooters
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="{% url 'rentals:list' %}" class="btn-slide-secondary">Rent from $80/month</a>
+            </div>
+          </div>
+          <div class="slide-product-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M3 19H1V7l3-4h9l4 5h3l3 4v3h-2"/><path d="M11 19H7"/></svg>
+          </div>
+          <div class="slider-dots">
+            <div class="slider-dot" onclick="goSlide(0)"></div>
+            <div class="slider-dot active" onclick="goSlide(1)"></div>
+            <div class="slider-dot" onclick="goSlide(2)"></div>
+          </div>
+          <div class="slider-arrows">
+            <button class="slider-arrow" onclick="prevSlide()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="slider-arrow" onclick="nextSlide()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg slide-bg-3">
+          <div class="slide-content">
+            <div class="slide-tag">♿ New Arrivals</div>
+            <h1 class="slide-title">Power Wheelchairs<br /><em>Advanced Mobility</em></h1>
+            <p class="slide-desc">State-of-the-art power wheelchairs built for comfort, durability, and long-range use. Medicare accepted.</p>
+            <div class="slide-actions">
+              <a href="{% url 'products:list' %}?category=power-wheelchairs" class="btn-slide-primary">
+                Shop Wheelchairs
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="{% url 'core:contact' %}" class="btn-slide-secondary">Talk to an Expert</a>
+            </div>
+          </div>
+          <div class="slide-product-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+          </div>
+          <div class="slider-dots">
+            <div class="slider-dot" onclick="goSlide(0)"></div>
+            <div class="slider-dot" onclick="goSlide(1)"></div>
+            <div class="slider-dot active" onclick="goSlide(2)"></div>
+          </div>
+          <div class="slider-arrows">
+            <button class="slider-arrow" onclick="prevSlide()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="slider-arrow" onclick="nextSlide()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="hero-sidebar">
+      <!-- Featured product — first featured product from context -->
+      {% with featured_products|first as hero_product %}
+      {% if hero_product %}
+      <a href="{% url 'products:detail' hero_product.slug %}" class="hero-featured">
+        <div class="hero-featured-img">
+          {% if hero_product.main_image %}
+            <img src="{{ hero_product.main_image.url }}" alt="{{ hero_product.name }}" style="width:100%;height:100%;object-fit:cover;" />
+          {% else %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:44px;height:44px;color:var(--blue)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          {% endif %}
+        </div>
+        <div class="hero-featured-info">
+          <div class="hero-featured-price">From ${{ hero_product.purchase_price }}</div>
+          <div class="hero-featured-name">{{ hero_product.name }}</div>
+          <div class="hero-featured-desc">{{ hero_product.short_desc }}</div>
+          <span class="hero-featured-btn">View Details</span>
+        </div>
+      </a>
+      {% endif %}
+      {% endwith %}
+
+      <!-- Category mini grid -->
+      <div class="hero-cats">
+        {% for category in categories %}
+        <a href="{% url 'products:list' %}?category={{ category.slug }}" class="hero-cat">
+          <div class="hero-cat-icon" style="background:#FDECEA;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#CC1B1B" stroke-width="2" style="width:26px;height:26px"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+          </div>
+          <div class="hero-cat-name">{{ category.name }}</div>
+          <div class="hero-cat-count">{{ category.products.count }} items</div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ TRUST BAR ══════════════ -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg></div>
+      <div class="trust-text"><strong>Local Woodbridge Store</strong><span>14535 Jefferson Davis Highway, VA 22191</span></div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+      <div class="trust-text"><strong>Free Local Delivery</strong><span>Northern Virginia area</span></div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="trust-text"><strong>Medicare Accepted</strong><span>Insurance billing available</span></div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="trust-text"><strong>Quality Guaranteed</strong><span>FDA-regulated equipment</span></div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <div class="trust-text"><strong>(703) 910-6264</strong><span>Mon–Fri 9AM–6PM</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════ FEATURED PRODUCTS ══════════════ -->
+  <section class="section">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">Top Picks</div>
+        <h2 class="section-title">Featured Products</h2>
+        <p class="section-sub">Our most popular mobility and comfort equipment</p>
+      </div>
+      <a href="{% url 'products:list' %}" class="see-all">
+        View all products
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- Hero banner — first featured product -->
+      {% with featured_products|first as hero_product %}
+      {% if hero_product %}
+      <div class="featured-banner reveal">
+        <div class="featured-banner-img">
+          {% if hero_product.main_image %}
+            <img src="{{ hero_product.main_image.url }}" alt="{{ hero_product.name }}" style="width:100%;height:100%;object-fit:contain;" />
+          {% else %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          {% endif %}
+        </div>
+        <div class="featured-banner-info">
+          <div class="featured-banner-tag">⭐ Editor's Pick</div>
+          <div class="featured-banner-name">{{ hero_product.name }}</div>
+          <div class="featured-banner-desc">{{ hero_product.short_desc }}</div>
+        </div>
+        <div class="featured-banner-actions">
+          <div class="featured-banner-price">${{ hero_product.purchase_price }} <span>/ purchase</span></div>
+          <a href="{% url 'products:detail' hero_product.slug %}" class="btn-banner">View Details</a>
+          {% if hero_product.is_rentable %}
+            <a href="{% url 'rentals:list' %}" class="btn-banner-outline">Rent from ${{ hero_product.rental_monthly }}/mo</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+      {% endwith %}
+
+      <!-- Remaining featured product cards (skip first — already in banner) -->
+      {% for product in featured_products %}
+        {% if not forloop.first %}
+        <div class="product-card reveal reveal-delay-{{ forloop.counter }}">
+          {% if product.is_new %}
+            <span class="product-card-badge badge-new">New</span>
+          {% elif product.is_rentable %}
+            <span class="product-card-badge badge-rental">Rental</span>
+          {% elif product.on_sale %}
+            <span class="product-card-badge badge-sale">Sale</span>
+          {% endif %}
+
+          <a href="{% url 'products:detail' product.slug %}" class="product-card-img">
+            {% if product.main_image %}
+              <img src="{{ product.main_image.url }}" alt="{{ product.name }}" />
+            {% else %}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+            {% endif %}
+          </a>
+
+          <div class="product-card-body">
+            {% if product.brand %}
+              <div class="product-brand">{{ product.brand.name }}</div>
+            {% endif %}
+            <div class="product-name">
+              <a href="{% url 'products:detail' product.slug %}">{{ product.name }}</a>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">${{ product.purchase_price }}</div>
+                {% if product.on_sale %}
+                  <div class="product-price-old">${{ product.compare_at_price }}</div>
+                {% endif %}
+                {% if product.is_rentable and product.rental_monthly %}
+                  <div class="product-rental">or ${{ product.rental_monthly }}/mo rental</div>
+                {% endif %}
+              </div>
+            </div>
+            <button class="product-action"
+              data-id="{{ product.pk }}"
+              data-name="{{ product.name|escapejs }}"
+              data-price="{{ product.purchase_price }}"
+              data-img="{% if product.main_image %}{{ product.main_image.url }}{% endif %}"
+              onclick="idxAddCart(this)">Get a Quote</button>
+          </div>
+        </div>
+        {% endif %}
+      {% empty %}
+        <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px 0;">
+          No featured products yet. Add products in the admin and mark them as featured.
+        </p>
+      {% endfor %}
+
+    </div>
+  </section>
+
+  <!-- ══════════════ SHOP BY CATEGORY ══════════════ -->
+  <section class="section section-alt">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">Browse</div>
+        <h2 class="section-title">Shop by Category</h2>
+        <p class="section-sub">Find the right equipment for your needs</p>
+      </div>
+    </div>
+    <div class="cat-grid">
+      {% for category in categories %}
+      <a href="{% url 'products:list' %}?category={{ category.slug }}" class="cat-card reveal reveal-delay-{{ forloop.counter }}" style="--cat-color:#CC1B1B;--cat-bg:#FDECEA;">
+        <div class="cat-card-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+        </div>
+        <div class="cat-card-name">{{ category.name }}</div>
+        {% if category.description %}
+          <div class="cat-card-desc">{{ category.description }}</div>
+        {% endif %}
+        <div class="cat-card-footer">
+          <span class="cat-card-count">{{ category.products.count }} products</span>
+          <div class="cat-card-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+      {% empty %}
+        <p style="grid-column:1/-1;color:var(--text-muted);">No categories yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ══════════════ NEW ARRIVALS ══════════════ -->
+  <section class="section">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">Recently Added</div>
+        <h2 class="section-title">New Arrivals</h2>
+        <p class="section-sub">Latest equipment added to our catalogue</p>
+      </div>
+      <a href="{% url 'products:list' %}?sort=newest" class="see-all">
+        See all new items
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="product-grid product-grid-4">
+      {% for product in new_products %}
+      <div class="product-card reveal reveal-delay-{{ forloop.counter }}">
+        <span class="product-card-badge badge-new">New</span>
+        <a href="{% url 'products:detail' product.slug %}" class="product-card-img">
+          {% if product.main_image %}
+            <img src="{{ product.main_image.url }}" alt="{{ product.name }}" />
+          {% else %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+          {% endif %}
+        </a>
+        <div class="product-card-body">
+          {% if product.brand %}
+            <div class="product-brand">{{ product.brand.name }}</div>
+          {% endif %}
+          <div class="product-name">
+            <a href="{% url 'products:detail' product.slug %}">{{ product.name }}</a>
+          </div>
+          <div class="product-price-row">
+            <div>
+              <div class="product-price">${{ product.purchase_price }}</div>
+              {% if product.is_rentable and product.rental_monthly %}
+                <div class="product-rental">or ${{ product.rental_monthly }}/mo rental</div>
+              {% endif %}
+            </div>
+          </div>
+          <button class="product-action"
+            data-id="{{ product.pk }}"
+            data-name="{{ product.name|escapejs }}"
+            data-price="{{ product.purchase_price }}"
+            data-img="{% if product.main_image %}{{ product.main_image.url }}{% endif %}"
+            onclick="idxAddCart(this)">Get a Quote</button>
+        </div>
+      </div>
+      {% empty %}
+        <p style="grid-column:1/-1;color:var(--text-muted);">No new arrivals yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ══════════════ BRANDS MARQUEE ══════════════ -->
+  <section class="brand-marquee-section">
+    <div class="brand-marquee-header reveal">
+      <div class="section-label">Trusted Partners</div>
+      <h2 class="section-title" style="font-size:20px;">Brands We Carry</h2>
+    </div>
+    <div class="brand-marquee-track-wrap">
+      <div class="brand-marquee-track">
+        <!-- set 1 -->
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmp30e0degz.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmp3nx_1um0.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmp8yxj3u7o.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpaf745af7.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpbkyy_6wk.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpielsjw62.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpj2zdkrdc.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpj6332nw5.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpoalld_fv.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpotiy2hg8.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpt6o630a4.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmptt3qk3cb.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmp_vd9psoa.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpw6yvsy00.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpyihkr2nt.webp' %}" alt="Brand" /></div>
+        <!-- set 2 (duplicate for seamless loop) -->
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmp30e0degz.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmp3nx_1um0.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmp8yxj3u7o.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpaf745af7.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpbkyy_6wk.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpielsjw62.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpj2zdkrdc.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpj6332nw5.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpoalld_fv.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpotiy2hg8.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpt6o630a4.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmptt3qk3cb.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmp_vd9psoa.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpw6yvsy00.webp' %}" alt="Brand" /></div>
+        <div class="brand-marquee-item"><img src="{% static 'img/brand/tmpyihkr2nt.webp' %}" alt="Brand" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SERVICES BAR ══════════════ -->
+  <div class="services-bar">
+    <a href="{% url 'core:contact' %}" class="service-item">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+      <div><div class="service-name">New Customer Form</div><div class="service-sub">Set up your account</div></div>
+    </a>
+    <a href="{% url 'core:contact' %}" class="service-item">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+      <div><div class="service-name">Credit Card Auth</div><div class="service-sub">Secure payment setup</div></div>
+    </a>
+    <a href="{% url 'core:contact' %}" class="service-item">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+      <div><div class="service-name">Return Authorization</div><div class="service-sub">Request a return</div></div>
+    </a>
+    <a href="{% url 'core:contact' %}" class="service-item">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <div><div class="service-name">Service Brochure</div><div class="service-sub">Download PDF</div></div>
+    </a>
+    <a href="tel:+17039106264" class="service-item">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <div><div class="service-name">Call (703) 910-6264</div><div class="service-sub">Speak to an expert</div></div>
+    </a>
+  </div>
+
+  <!-- ══════════════ RENTAL & FINANCING SPLIT ══════════════ -->
+  <div class="split-section">
+    <div class="split-panel split-panel-left">
+      <div class="split-icon" style="background:var(--blue-light);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#CC1B1B" stroke-width="2" style="width:28px;height:28px"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <div class="section-label">Flexible Options</div>
+      <h2 class="split-title">Rent Before You Buy</h2>
+      <p class="split-desc">Not ready to commit? Rent any piece of equipment short-term or long-term. Perfect for recovery periods, trials before purchase, or temporary needs.</p>
+      <ul class="split-list">
+        <li class="split-list-item">
+          <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Monthly rentals starting from $60
+        </li>
+        <li class="split-list-item">
+          <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Free delivery and pickup in Northern Virginia
+        </li>
+        <li class="split-list-item">
+          <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Rent payments apply toward purchase price
+        </li>
+        <li class="split-list-item">
+          <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Maintenance and repairs included
+        </li>
+      </ul>
+      <a href="{% url 'rentals:list' %}" class="btn-split-left">
+        View Rental Catalogue
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="split-panel split-panel-right">
+      <div class="split-icon" style="background:rgba(204,27,27,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#CC1B1B" stroke-width="2" style="width:28px;height:28px"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+      </div>
+      <div class="section-label">Two Locations</div>
+      <h2 class="split-title">Shop in the US,<br/>Pick Up in Ghana</h2>
+      <p class="split-desc">Pay in the US and your family picks up quality medical equipment and supplies at our East Legon showroom in Accra, Ghana.</p>
+      <ul class="split-list">
+        <li class="split-list-item">
+          <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Items already stocked in Accra
+        </li>
+        <li class="split-list-item">
+          <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          East Legon showroom, Silicon Heights Bldg
+        </li>
+        <li class="split-list-item">
+          <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Secure online payment in the US
+        </li>
+        <li class="split-list-item">
+          <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Anyone you designate can pick up
+        </li>
+      </ul>
+      <a href="{% url 'core:accra' %}" class="btn-split-right">
+        Learn About Accra Branch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <div class="about-strip reveal">
+    <div class="about-content">
+      <div>
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">About Mandad Medical Supply</h2>
+      </div>
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.8;">
+        Mandad Medical Supply has been serving the Northern Virginia and greater DC metro area for over a decade. Located in Woodbridge, Virginia, we specialise in durable medical equipment that helps our customers maintain their independence and quality of life at home.
+      </p>
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.8;">
+        We work directly with physicians, therapists, and insurance providers to ensure our customers receive the right equipment with minimal hassle. Our knowledgeable staff are available to help you navigate insurance coverage, financing, and product selection.
+      </p>
+      <a href="{% url 'core:about' %}" class="about-read-more">
+        Read our story
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-num">10+</div>
+        <div class="about-stat-label">Years Serving Northern Virginia</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">500+</div>
+        <div class="about-stat-label">Products in Catalogue</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">7</div>
+        <div class="about-stat-label">Premium Brand Partners</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">★ 4.8</div>
+        <div class="about-stat-label">Google Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:40px;width:auto;filter:brightness(0) invert(1);" />
+        </div>
+        <p class="footer-brand-desc">Your trusted source for durable medical equipment in Northern Virginia. Serving Woodbridge and the greater DC metro area.</p>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+            14535 Jefferson Davis Highway, Woodbridge, VA 22191
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            (703) 910-6264
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            mandadmed@comcast.net
+          </div>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/profile.php?id=61566352520226" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/mandadmedicalsupply/" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Products</div>
+        <div class="footer-links">
+          {% for category in categories %}
+            <a href="{% url 'products:list' %}?category={{ category.slug }}" class="footer-link">{{ category.name }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="{% url 'rentals:list' %}" class="footer-link">Equipment Rental</a>
+          <a href="{% url 'core:accra' %}" class="footer-link">Accra Branch 🇬🇭</a>
+          <a href="{% url 'core:contact' %}" class="footer-link">Delivery & Setup</a>
+          <a href="{% url 'core:contact' %}" class="footer-link">Repair & Maintenance</a>
+          <a href="{% url 'core:contact' %}" class="footer-link">Healthcare Partners</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Information</div>
+        <div class="footer-links">
+          <a href="{% url 'core:about' %}"   class="footer-link">About Us</a>
+          <a href="{% url 'core:accra' %}"   class="footer-link">Accra Branch 🇬🇭</a>
+          <a href="{% url 'core:contact' %}" class="footer-link">Contact Us</a>
+          <a href="{% url 'core:contact' %}" class="footer-link">New Customer Form</a>
+          <a href="{% url 'core:contact' %}" class="footer-link">Return Authorization</a>
+          <a href="{% url 'core:contact' %}" class="footer-link">Service Brochure</a>
+          <a href="{% url 'core:contact' %}" class="footer-link">FAQ</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Newsletter</div>
+        <div class="footer-newsletter">
+          <p>Register your email to stay updated on new products and special offers.</p>
+          <form method="post" action="{% url 'core:newsletter' %}" class="footer-input-row">
+            {% csrf_token %}
+            <input type="email" name="email" class="footer-input" placeholder="your@email.com" required />
+            <button type="submit" class="footer-input-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Mandad Medical Supply LLC. All rights reserved. Woodbridge, Virginia.</p>
+      <div class="footer-payments">
+        <div class="payment-badge">VISA</div>
+        <div class="payment-badge">MC</div>
+        <div class="payment-badge">AMEX</div>
+        <div class="payment-badge">DISCOVER</div>
+        <div class="payment-badge">HSA</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="{% static 'js/index.js' %}"></script>
+
+  <script src="{% static 'js/cart.js' %}"></script>
+  <script src="{% static 'js/index.js' %}"></script>
+  <script>
+  function idxAddCart(btn) {
+    MandadCart.add(btn.dataset.id, btn.dataset.name, btn.dataset.price, 1, 'purchase', btn.dataset.img);
+    var orig = btn.textContent;
+    btn.textContent = 'Added!';
+    btn.disabled = true;
+    setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 1400);
+  }
+  </script>
+</body>
+</html>

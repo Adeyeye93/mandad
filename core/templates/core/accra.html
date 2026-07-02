@@ -1,0 +1,464 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pay in the US, Your Family Picks It Up in Ghana | Mandad Medical Supply</title>
+  <meta name="description" content="The items are already in Accra. Pay in the US and your loved ones pick up at our East Legon showroom — Silicon Heights Building, Boundary Road, East Legon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/accra.css' %}" />
+</head>
+<body>
+
+  <!-- ══════════════ TOP BAR ══════════════ -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <span>14535 Jefferson Davis Highway, Woodbridge, VA 22191</span>
+      <div class="topbar-sep"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Mon–Fri 10AM–6PM · Sat 10AM–4PM · Sun Closed</span>
+      <div class="topbar-sep"></div>
+      <a href="mailto:mandadmed@comcast.net">mandadmed@comcast.net</a>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        (703) 910-6264
+      </div>
+      <a href="https://www.facebook.com/profile.php?id=61566352520226" target="_blank" rel="noopener" class="topbar-social" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/mandadmedicalsupply/" target="_blank" rel="noopener" class="topbar-social" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+
+      <div class="topbar-badge">Accra Pickup Available</div>
+    </div>
+  </div>
+
+  <!-- ══════════════ NAV ══════════════ -->
+  <nav>
+    <a href="{% url 'core:home' %}" class="nav-logo">
+      <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
+    </a>
+
+    <form method="get" action="{% url 'products:list' %}" class="nav-search">
+      <input type="text" name="q" class="nav-search-input" placeholder="Search products…" />
+      <button type="submit" class="nav-search-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </form>
+
+    <ul class="nav-links">
+      <li><a href="{% url 'core:home' %}"     class="nav-link">Home</a></li>
+      <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
+      <li><a href="{% url 'rentals:list' %}"  class="nav-link">Rentals</a></li>
+      <li><a href="{% url 'core:about' %}"    class="nav-link">About</a></li>
+      <li><a href="{% url 'core:accra' %}"    class="nav-link active">Accra Branch</a></li>
+      <li><a href="{% url 'core:contact' %}"  class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="{% url 'core:contact' %}" class="btn-outline">Contact Us</a>
+      <a href="{% url 'products:list' %}" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        Shop Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <div class="accra-hero">
+    <div class="accra-hero-stripe"></div>
+    <div class="accra-hero-inner">
+
+      <div class="accra-hero-left">
+        <div class="breadcrumb">
+          <a href="{% url 'core:home' %}">Home</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          <span>Accra Branch</span>
+        </div>
+
+        <div class="hero-tag">
+          <span class="hero-flag">🇺🇸</span>
+          Pay in the US &nbsp;·&nbsp; 🇬🇭 Pick Up in Ghana
+        </div>
+
+        <h1>Pay in the US,<br /><em>Your Family Picks It Up in Ghana!</em></h1>
+        <p class="accra-hero-desc">
+          The items are <strong style="color:#fff;">already in Accra</strong>. Buy in the US with confidence — your loved ones pick up quality medical equipment and supplies at our East Legon showroom. Convenient. Reliable. Local pickup.
+        </p>
+
+        <div class="hero-actions">
+          <a href="{% url 'products:list' %}" class="btn-hero-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            Browse Products
+          </a>
+          <a href="{% url 'core:contact' %}" class="btn-hero-outline">Ask a Question</a>
+        </div>
+      </div>
+
+      <div class="accra-hero-right">
+        <div class="accra-route-card">
+          <div class="route-node">
+            <div class="route-flag">🇺🇸</div>
+            <div>
+              <div class="route-info-label">Woodbridge Showroom — Order From</div>
+              <div class="route-info-name">14535 Jefferson Davis Hwy, VA</div>
+              <div class="route-info-sub">(703) 910-6264 · Mon–Fri 10AM–6PM, Sat 10AM–4PM</div>
+            </div>
+          </div>
+
+          <div class="route-connector">
+            <div class="route-line"></div>
+            <div class="route-label">Items already in Accra ✓</div>
+          </div>
+
+          <div class="route-node">
+            <div class="route-flag">🇬🇭</div>
+            <div>
+              <div class="route-info-label">East Legon Showroom — Pick Up At</div>
+              <div class="route-info-name">Silicon Heights Bldg, Boundary Rd</div>
+              <div class="route-info-sub">+233 59 317 3330 · ultimatemandad@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-num">100%</div>
+              <div class="route-stat-label">Secure online ordering</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-num">500+</div>
+              <div class="route-stat-label">Products available</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-num">10+</div>
+              <div class="route-stat-label">Years in business</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-num">🛡</div>
+              <div class="route-stat-label">Quality guaranteed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════ HOW IT WORKS ══════════════ -->
+  <section class="how-section">
+    <div class="how-inner">
+      <div class="how-header reveal">
+        <div class="section-label">Simple Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Getting quality equipment to Ghana is straightforward — just three steps.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card reveal reveal-delay-1">
+          <div class="step-num">1</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          </div>
+          <div class="step-title">Browse &amp; Order Online</div>
+          <p class="step-desc">Shop our full catalogue from anywhere in the world. Add items to your quote cart, or call us directly at (703) 910-6264 to place your order.</p>
+          <span class="step-tag">Shop from any country</span>
+        </div>
+
+        <div class="step-card reveal reveal-delay-2">
+          <div class="step-num">2</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <div class="step-title">Pay &amp; We Prepare</div>
+          <p class="step-desc">Complete payment online or via phone. We process your order and prepare everything for transport to our Accra branch — with full tracking.</p>
+          <span class="step-tag">Secure payment</span>
+        </div>
+
+        <div class="step-card reveal reveal-delay-3">
+          <div class="step-num">3</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+          </div>
+          <div class="step-title">Pick Up in Accra</div>
+          <p class="step-desc">You or your family collect the items at our Accra branch once they arrive. We'll notify you when your order is ready for collection.</p>
+          <span class="step-tag">Accra, Ghana</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ WHY CHOOSE US ══════════════ -->
+  <section class="why-section">
+    <div class="why-inner">
+      <div class="why-visual reveal">
+        <div class="why-img-main">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="why-badge">
+          <div class="why-badge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="why-badge-num">Trusted</div>
+            <div class="why-badge-label">Quality Medical Equipment</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-content reveal">
+        <div>
+          <div class="section-label">Why Choose Us</div>
+          <h2 class="section-title">Quality You Can Trust,<br />Service You Deserve</h2>
+        </div>
+        <p style="font-size:15px;color:var(--text-muted);line-height:1.8;">
+          Mandad Medical Supply has served Northern Virginia for over a decade. Now, through our Accra branch, we extend that same trusted service to Ghanaians in the diaspora who want to send quality medical equipment and goods back home.
+        </p>
+
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-item-icon" style="background:#FDECEA;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#CC1B1B" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="why-item-title">FDA-Regulated Medical Equipment</div>
+              <div class="why-item-desc">All our products are sourced from certified US manufacturers, meeting strict quality and safety standards.</div>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-item-icon" style="background:#E0F5F4;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00A89D" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+            </div>
+            <div>
+              <div class="why-item-title">Reliable Accra Pickup</div>
+              <div class="why-item-desc">Our Accra branch is staffed and ready. We'll notify you and your designated contact the moment your order is ready for collection.</div>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-item-icon" style="background:#FDF8E1;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div>
+              <div class="why-item-title">Competitive Pricing</div>
+              <div class="why-item-desc">Get US-quality medical equipment at prices that make sense. We offer transparent pricing with no hidden fees.</div>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-item-icon" style="background:#E0F5F4;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00A89D" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="why-item-title">Dedicated Support</div>
+              <div class="why-item-desc">Our team speaks to diaspora customers daily. Call or email us — we understand your needs and speak your language.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PRODUCTS AVAILABLE ══════════════ -->
+  <section class="products-section">
+    <div class="products-inner">
+      <div class="products-header reveal">
+        <div class="section-label">What's Available</div>
+        <h2 class="section-title">Products Available for Accra Pickup</h2>
+        <p class="section-sub">Browse our full range of mobility and medical equipment — all eligible for Accra branch collection.</p>
+      </div>
+
+      <div class="prod-cats-grid">
+        <a href="{% url 'products:list' %}?category=lift-chairs" class="prod-cat-card reveal reveal-delay-1">
+          <div class="prod-cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg>
+          </div>
+          <div class="prod-cat-name">Lift Chairs</div>
+          <div class="prod-cat-desc">Premium recliner lift chairs for independence and comfort at home.</div>
+        </a>
+
+        <a href="{% url 'products:list' %}?category=mobility-scooters" class="prod-cat-card reveal reveal-delay-1">
+          <div class="prod-cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M3 19H1V7l3-4h9l4 5h3l3 4v3h-2"/></svg>
+          </div>
+          <div class="prod-cat-name">Mobility Scooters</div>
+          <div class="prod-cat-desc">3-wheel and 4-wheel power scooters to regain freedom and independence.</div>
+        </a>
+
+        <a href="{% url 'products:list' %}?category=power-wheelchairs" class="prod-cat-card reveal reveal-delay-2">
+          <div class="prod-cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="19" r="2"/><circle cx="19" cy="13" r="2"/><path d="M12 17V9l4-2"/><path d="M5 11l7-2"/></svg>
+          </div>
+          <div class="prod-cat-name">Powerchairs</div>
+          <div class="prod-cat-desc">Advanced power wheelchairs for comfort, durability, and long-range mobility.</div>
+        </a>
+
+        <a href="{% url 'products:list' %}?category=wheelchairs" class="prod-cat-card reveal reveal-delay-2">
+          <div class="prod-cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"/><path d="M10 22a4 4 0 100-8 4 4 0 000 8z"/><path d="M14 22a4 4 0 100-8 4 4 0 000 8z"/><path d="M10 7l-2 5h6l1 4"/></svg>
+          </div>
+          <div class="prod-cat-name">Wheelchairs</div>
+          <div class="prod-cat-desc">Manual and transport wheelchairs for every lifestyle and need.</div>
+        </a>
+
+        <a href="{% url 'products:list' %}?category=walking-aids" class="prod-cat-card reveal reveal-delay-3">
+          <div class="prod-cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><path d="M8 6l4-4 4 4"/><path d="M8 18l4 4 4-4"/></svg>
+          </div>
+          <div class="prod-cat-name">Walking Aids &amp; Accessories</div>
+          <div class="prod-cat-desc">Canes, walkers, rollators, and accessories for daily mobility support.</div>
+        </a>
+
+        <a href="{% url 'products:list' %}?category=cpap" class="prod-cat-card reveal reveal-delay-3">
+          <div class="prod-cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="prod-cat-name">CPAP &amp; Respiratory</div>
+          <div class="prod-cat-desc">CPAP machines, masks, and respiratory therapy equipment.</div>
+        </a>
+
+        <a href="{% url 'products:list' %}?category=home-medical" class="prod-cat-card reveal reveal-delay-1">
+          <div class="prod-cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="prod-cat-name">Home Medical Supplies</div>
+          <div class="prod-cat-desc">Everything you need for safe, comfortable care at home.</div>
+        </a>
+
+        <a href="{% url 'products:list' %}" class="prod-cat-card reveal reveal-delay-2">
+          <div class="prod-cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <div class="prod-cat-name">Skin Care Products</div>
+          <div class="prod-cat-desc">Quality skin care range — also available at our East Legon showroom.</div>
+        </a>
+      </div>
+
+      <div class="products-note reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>
+          <strong>Ready to order?</strong> Call us at <strong>(703) 910-6264</strong> or email <a href="mailto:ultimatemandad@gmail.com" style="color:var(--blue);font-weight:600;">ultimatemandad@gmail.com</a>. For Ghana branch enquiries call <strong>+233 59 317 3330</strong>. We'll confirm availability and walk you through the full process — we're here 24/7 for customer support.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FAQ ══════════════ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <div class="faq-header reveal">
+        <div class="section-label">Got Questions?</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Everything you need to know about ordering for Accra pickup.</p>
+      </div>
+
+      <div class="faq-list reveal">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How long does it take for items to reach the Accra branch?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            Transit times vary depending on the item and shipping method. Once your order is confirmed and paid, we will give you an estimated arrival date at our Accra branch. You will receive a notification by phone or email when your items are ready for pickup.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Who can pick up the order at the Accra branch?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            You can designate any trusted person — a family member, friend, or representative — to collect your items in Accra. They will need to present a valid ID and the order reference number we provide when your order is confirmed.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What payment methods are accepted for diaspora orders?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            We accept all major credit and debit cards (Visa, Mastercard, Amex, Discover), as well as bank transfers. Payment is processed securely through our online system or over the phone with one of our team members. We do not accept cash for international diaspora orders.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I order any product from the catalogue for Accra pickup?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            The vast majority of our catalogue is available for Accra branch pickup. A small number of items — such as very large power chairs requiring specialist delivery setup — may have restrictions. We recommend contacting us before placing your order so we can confirm availability and advise accordingly.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I know my order is safe during transit?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            All items are packaged professionally and insured during transit. We have an established logistics process between our Virginia store and the Accra branch. In the unlikely event of damage, we will work with you to resolve the issue promptly.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I get a refund if I change my mind?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            Cancellations can be accepted before the item has been dispatched from our Virginia store. Once items are in transit to the Accra branch, cancellations are no longer possible. Please contact us as soon as possible if you need to make changes to your order.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CTA ══════════════ -->
+  <div class="accra-cta">
+    <h2>Two Locations. One Mission.</h2>
+    <p>Caring for you and your family — in the US and in Ghana. Pay securely in the US, and your loved ones pick up quality medical equipment at our East Legon showroom.</p>
+    <p style="font-size:13px;opacity:.75;margin-top:-8px;">Operated by Patrick and Dinah Opoku-Manu</p>
+    <div class="cta-actions">
+      <a href="{% url 'products:list' %}" class="btn-cta-white">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        Shop Now
+      </a>
+      <a href="tel:+17039106264" class="btn-cta-outline">Call (703) 910-6264</a>
+    </div>
+  </div>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 Mandad Medical Supply LLC. All rights reserved. Woodbridge, Virginia &amp; Accra, Ghana.</p>
+      <div class="footer-links-row">
+        <a href="{% url 'core:home' %}"     class="footer-link-sm">Home</a>
+        <a href="{% url 'products:list' %}" class="footer-link-sm">Products</a>
+        <a href="{% url 'core:accra' %}"    class="footer-link-sm">Accra Branch</a>
+        <a href="{% url 'core:about' %}"    class="footer-link-sm">About Us</a>
+        <a href="{% url 'core:contact' %}"  class="footer-link-sm">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="{% static 'js/accra.js' %}"></script>
+
+  <script src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>

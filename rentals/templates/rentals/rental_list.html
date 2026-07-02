@@ -1,0 +1,263 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipment Rentals — Mandad Medical Supply</title>
+  <meta name="description" content="Rent durable medical equipment in Woodbridge VA. Lift chairs, scooters, wheelchairs, hospital beds. Free delivery." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/rentals.css' %}" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+      14535 Jefferson Davis Highway, Woodbridge, VA 22191
+      <div class="topbar-sep"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Mon–Fri 9AM–6PM · Sat 10AM–4PM
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        (703) 910-6264
+      </div>
+      <a href="https://www.facebook.com/profile.php?id=61566352520226" target="_blank" rel="noopener" class="topbar-social" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/mandadmedicalsupply/" target="_blank" rel="noopener" class="topbar-social" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+
+      <div class="topbar-badge">Free Delivery on Rentals</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="{% url 'core:home' %}" class="nav-logo">
+      <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
+    </a>
+    <form method="get" action="{% url 'products:list' %}" class="nav-search">
+      <input type="text" name="q" class="nav-search-input" placeholder="Search rental equipment…" />
+      <button type="submit" class="nav-search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </form>
+    <ul class="nav-links">
+      <li><a href="{% url 'core:home' %}"     class="nav-link">Home</a></li>
+      <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
+      <li><a href="{% url 'rentals:list' %}"  class="nav-link active">Rentals</a></li>
+      <li><a href="{% url 'core:about' %}"    class="nav-link">About</a></li>
+      <li><a href="{% url 'core:accra' %}"    class="nav-link">Accra Branch</a></li>
+      <li><a href="{% url 'core:contact' %}"  class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="{% url 'products:list' %}" class="btn-nav-outline">Buy Equipment</a>
+      <a href="{% url 'rentals:enquiry' %}" class="btn-nav-teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Rent Equipment
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="rental-hero">
+    <div class="rental-hero-inner">
+      <div>
+        <div class="rental-hero-tag"><div class="rental-hero-tag-dot"></div>Equipment Available Now</div>
+        <h1>Rent Medical Equipment<br /><em>Without the Commitment</em></h1>
+        <p class="rental-hero-desc">Short-term or long-term rentals on lift chairs, scooters, wheelchairs, hospital beds and more. Free delivery and pickup throughout Northern Virginia. Cancel anytime with 30 days notice.</p>
+        <div class="rental-hero-actions">
+          <a href="#rental-catalogue" class="btn-hero-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Browse Available Equipment
+          </a>
+          <a href="{% url 'rentals:enquiry' %}" class="btn-hero-secondary">Request a Rental</a>
+        </div>
+      </div>
+      <div class="rental-hero-stats">
+        <div class="hero-stat-card"><div class="hero-stat-num">{{ rentals.count }}</div><div class="hero-stat-label">Items Available Now</div></div>
+        <div class="hero-stat-card"><div class="hero-stat-num">$60</div><div class="hero-stat-label">Starting Per Month</div></div>
+        <div class="hero-stat-card"><div class="hero-stat-num">Free</div><div class="hero-stat-label">Delivery & Pickup</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb">
+      <a href="{% url 'core:home' %}">Home</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      Equipment Rentals
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section">
+    <div style="text-align:center;margin-bottom:8px;" class="reveal">
+      <div class="section-label">Simple Process</div>
+      <h2 class="section-title">How Renting Works</h2>
+      <p class="section-sub">From enquiry to delivery in as little as 24 hours</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item reveal"><div class="step-num">1</div><div class="step-title">Choose Equipment</div><p class="step-desc">Browse our rental catalogue and select what fits your needs and budget.</p></div>
+      <div class="step-item reveal reveal-delay-1"><div class="step-num">2</div><div class="step-title">Submit Request</div><p class="step-desc">Fill in a quick enquiry form with your details, preferred start date, and rental duration.</p></div>
+      <div class="step-item reveal reveal-delay-2"><div class="step-num">3</div><div class="step-title">We Confirm</div><p class="step-desc">Our team contacts you within 2 hours to confirm availability and pricing.</p></div>
+      <div class="step-item reveal reveal-delay-3"><div class="step-num">4</div><div class="step-title">Delivered to You</div><p class="step-desc">We deliver, set up the equipment in your home, and walk you through how to use it safely.</p></div>
+    </div>
+  </div>
+
+  <!-- BENEFITS BAR -->
+  <div class="benefits-bar">
+    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><div class="benefit-name">Free Delivery & Pickup</div><div class="benefit-sub">All Northern Virginia</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="benefit-name">Fully Maintained</div><div class="benefit-sub">Repairs included at no cost</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div><div><div class="benefit-name">Apply Toward Purchase</div><div class="benefit-sub">Rent payments count toward buying</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="benefit-name">Flexible Duration</div><div class="benefit-sub">Weekly, monthly, or long-term</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg></div><div><div class="benefit-name">24-Hour Support</div><div class="benefit-sub">Reach us any time</div></div></div>
+  </div>
+
+  <!-- RENTAL CATALOGUE -->
+  <div class="page-body" id="rental-catalogue">
+
+    <!-- Toolbar -->
+    <div class="toolbar reveal">
+      <div class="toolbar-left">
+        <a href="{% url 'rentals:list' %}" class="cat-pill {% if not selected_cat %}active{% endif %}">All Equipment</a>
+        {% for cat in categories %}
+          <a href="{% url 'rentals:list' %}?category={{ cat.slug }}" class="cat-pill {% if selected_cat == cat.slug %}active{% endif %}">{{ cat.name }}</a>
+        {% endfor %}
+      </div>
+      <div class="toolbar-right">
+        <span class="result-count">{{ rentals.count }} item{{ rentals.count|pluralize }} available</span>
+      </div>
+    </div>
+
+    <!-- Rental Cards -->
+    <div class="rental-grid" id="rentalGrid">
+      {% for product in rentals %}
+      <div class="rental-card reveal" data-cat="{{ product.category.slug }}">
+
+        <div class="rc-badges">
+          {% if product.availability == 'in_stock' %}
+            <span class="rc-badge rc-badge-avail">Available Now</span>
+          {% elif product.availability == 'low_stock' %}
+            <span class="rc-badge rc-badge-low">Low Stock</span>
+          {% endif %}
+        </div>
+
+        <div class="rc-img">
+          {% if product.main_image %}
+            <img src="{{ product.main_image.url }}" alt="{{ product.name }}" style="width:100%;height:100%;object-fit:cover;" />
+          {% else %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+          {% endif %}
+          <div class="rc-img-overlay">
+            <div class="rc-avail-strip">
+              <div class="rc-avail-dot {% if product.availability == 'low_stock' %}low{% endif %}"></div>
+              <span class="rc-avail-text">{{ product.get_availability_display }}</span>
+              <span class="rc-avail-next">Enquire for availability</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rc-body">
+          {% if product.brand %}<div class="rc-brand">{{ product.brand.name }}</div>{% endif %}
+          <div class="rc-name">{{ product.name }}</div>
+          {% if product.short_desc %}<div class="rc-desc">{{ product.short_desc }}</div>{% endif %}
+
+          {% if product.specs %}
+          <div class="rc-specs">
+            {% for key, val in product.specs.items|slice:":3" %}
+              <span class="rc-spec">{{ val }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <!-- Pricing tiers -->
+          <div class="rc-pricing" id="pricing-{{ product.pk }}">
+            {% if product.rental_monthly %}
+            <div class="rc-price-tier selected" onclick="selectTier(this, 'pricing-{{ product.pk }}')">
+              <div class="rc-tier-label">Monthly</div>
+              <div class="rc-tier-price">${{ product.rental_monthly }}</div>
+              <div class="rc-tier-unit">per month</div>
+            </div>
+            {% endif %}
+            {% if product.rental_weekly %}
+            <div class="rc-price-tier" onclick="selectTier(this, 'pricing-{{ product.pk }}')">
+              <div class="rc-tier-label">Weekly</div>
+              <div class="rc-tier-price">${{ product.rental_weekly }}</div>
+              <div class="rc-tier-unit">per week</div>
+            </div>
+            {% endif %}
+            {% if product.rental_3month %}
+            <div class="rc-price-tier" onclick="selectTier(this, 'pricing-{{ product.pk }}')">
+              <div class="rc-tier-label">3+ Months</div>
+              <div class="rc-tier-price">${{ product.rental_3month }}</div>
+              <div class="rc-tier-unit">per month</div>
+            </div>
+            {% endif %}
+          </div>
+
+          <div class="rc-actions">
+            <a href="{% url 'rentals:enquiry' %}?product={{ product.pk }}" class="btn-rent-now">Rent This Item</a>
+            <a href="{% url 'products:detail' product.slug %}" class="btn-rent-details">Buy Instead</a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-muted);">
+        <p style="font-size:18px;font-weight:700;margin-bottom:8px;">No rental equipment available</p>
+        <p>Check back soon or <a href="{% url 'rentals:enquiry' %}" style="color:var(--blue);">enquire about a specific item</a>.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-section-inner">
+      <div class="faq-header reveal"><div class="section-label">Common Questions</div><h2 class="section-title">Rental FAQs</h2></div>
+      <div class="faq-list reveal">
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What is the minimum rental period?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Our minimum rental period is one week. Most customers rent monthly, which offers the best value.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How does delivery and pickup work?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Delivery and pickup are free throughout Northern Virginia. Our team delivers, sets up the equipment in your home, and walks you through how to use it.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What if the equipment needs repair during my rental?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">All repairs and maintenance are fully covered during your rental at no extra cost.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I apply my rental payments toward a purchase?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. If you decide to purchase the item you are renting, we can apply a portion of your rental payments toward the purchase price.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How do I end my rental?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">You can end your rental at any time with 30 days notice. We schedule a convenient pickup window. No early termination fees.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2>Not Sure What You Need?</h2>
+    <p>Our team is happy to help you choose the right equipment for your situation.</p>
+    <div class="cta-actions">
+      <a href="{% url 'rentals:enquiry' %}" class="btn-cta-teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Request a Rental
+      </a>
+      <a href="tel:+17039106264" class="btn-cta-outline">Call (703) 910-6264</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 Mandad Medical Supply LLC. All rights reserved. Woodbridge, Virginia.</p>
+      <div class="footer-links-row">
+        <a href="{% url 'core:about' %}"    class="footer-link-sm">About Us</a>
+        <a href="{% url 'products:list' %}" class="footer-link-sm">Products</a>
+        <a href="{% url 'rentals:list' %}"  class="footer-link-sm">Rentals</a>
+        <a href="{% url 'core:contact' %}"  class="footer-link-sm">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <script src="{% static 'js/rentals.js' %}"></script>
+  <script src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>

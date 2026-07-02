@@ -1,0 +1,234 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Mandad Medical Supply</title>
+  <meta name="description" content="Contact Mandad Medical Supply in Woodbridge, VA. Call, email, or visit us." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+      14535 Jefferson Davis Highway, Woodbridge, VA 22191
+      <div class="topbar-sep"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Mon–Fri 9AM–6PM · Sat 10AM–4PM
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        (703) 910-6264
+      </div>
+      <a href="https://www.facebook.com/profile.php?id=61566352520226" target="_blank" rel="noopener" class="topbar-social" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/mandadmedicalsupply/" target="_blank" rel="noopener" class="topbar-social" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+
+      <div class="topbar-badge">Free Delivery Available</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="{% url 'core:home' %}" class="nav-logo">
+      <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
+    </a>
+    <form method="get" action="{% url 'products:list' %}" class="nav-search">
+      <input type="text" name="q" class="nav-search-input" placeholder="Search products…" />
+      <button type="submit" class="nav-search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </form>
+    <ul class="nav-links">
+      <li><a href="{% url 'core:home' %}"     class="nav-link">Home</a></li>
+      <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
+      <li><a href="{% url 'rentals:list' %}"  class="nav-link">Rentals</a></li>
+      <li><a href="{% url 'core:about' %}"    class="nav-link">About</a></li>
+      <li><a href="{% url 'core:accra' %}"    class="nav-link">Accra Branch</a></li>
+      <li><a href="{% url 'core:contact' %}"  class="nav-link active">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="{% url 'quotes:cart' %}" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        Quote Cart
+      </a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag">📍 Woodbridge, Virginia</div>
+      <h1>Get in Touch<br /><em>We're Here to Help</em></h1>
+      <p>Questions about a product, rental rates, insurance billing, or delivery? Most enquiries answered within 2 business hours.</p>
+      <div class="breadcrumb-row">
+        <a href="{% url 'core:home' %}">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        Contact Us
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK CONTACT BAR -->
+  <div class="quick-bar">
+    <div class="quick-bar-inner">
+      <a href="tel:+17039106264" class="quick-item">
+        <div class="quick-icon" style="background:#FDECEA;"><svg viewBox="0 0 24 24" fill="none" stroke="#CC1B1B" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg></div>
+        <div><div class="quick-label">Call Us</div><div class="quick-value">{{ site.phone }}</div><div class="quick-sub">Mon–Sat · Answered live</div></div>
+      </a>
+      <a href="mailto:{{ site.email }}" class="quick-item">
+        <div class="quick-icon" style="background:#E0F5F4;"><svg viewBox="0 0 24 24" fill="none" stroke="#00A89D" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="quick-label">Email Us</div><div class="quick-value">{{ site.email }}</div><div class="quick-sub">Response within 2 hours</div></div>
+      </a>
+      <a href="https://maps.google.com/?q=14535+Jefferson+Davis+Highway+Woodbridge+VA+22191" target="_blank" class="quick-item">
+        <div class="quick-icon" style="background:#FFF3E0;"><svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg></div>
+        <div><div class="quick-label">Visit Us</div><div class="quick-value">14535 Jefferson Davis Hwy</div><div class="quick-sub">Woodbridge, VA 22191</div></div>
+      </a>
+      <div class="quick-item">
+        <div class="quick-icon" style="background:#ECFDF5;"><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><div class="quick-label">Store Hours</div><div class="quick-value" style="color:var(--green);">Open Now</div><div class="quick-sub">Mon–Fri {{ site.hours_weekday }}</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="contact-body">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-card-label">Send a Message</div>
+        <h2 class="form-card-title">How Can We Help?</h2>
+        <p class="form-card-sub">Fill in the form and a member of our team will respond within 2 business hours.</p>
+      </div>
+
+      {% if messages %}
+      <div class="form-success show" id="formSuccess">
+        <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        {% for msg in messages %}
+          <div class="success-title">{{ msg }}</div>
+        {% endfor %}
+        <div class="success-sub">We'll contact you within 2 business hours — usually much sooner.</div>
+        <a href="{% url 'core:contact' %}" style="padding:11px 24px;font-size:13px;font-weight:700;background:var(--blue);color:#fff;border-radius:var(--radius);margin-top:8px;">Send Another Message</a>
+      </div>
+      {% else %}
+      <div class="form-card-body" id="formBody">
+        <div class="enquiry-tabs">
+          <button class="enquiry-tab active" onclick="setTab(this)" data-type="general">General Enquiry</button>
+          <button class="enquiry-tab" onclick="setTab(this)" data-type="quote">Product Quote</button>
+          <button class="enquiry-tab" onclick="setTab(this)" data-type="rental">Rental Enquiry</button>
+          <button class="enquiry-tab" onclick="setTab(this)" data-type="insurance">Insurance / Medicare</button>
+          <button class="enquiry-tab" onclick="setTab(this)" data-type="repair">Repair & Service</button>
+        </div>
+
+        <form method="post" action="{% url 'core:contact' %}">
+          {% csrf_token %}
+          <input type="hidden" name="enquiry_type" id="enquiryTypeInput" value="general" />
+          <div class="form-grid">
+            <div class="form-group"><label class="form-label">First Name <span>*</span></label><input type="text" name="first_name" class="form-input" placeholder="John" required /></div>
+            <div class="form-group"><label class="form-label">Last Name <span>*</span></label><input type="text" name="last_name" class="form-input" placeholder="Smith" required /></div>
+            <div class="form-group"><label class="form-label">Phone Number <span>*</span></label><input type="tel" name="phone" class="form-input" placeholder="(703) 000-0000" required /></div>
+            <div class="form-group"><label class="form-label">Email Address <span>*</span></label><input type="email" name="email" class="form-input" placeholder="john@email.com" required /></div>
+            <div class="form-group"><label class="form-label">City / Zip Code</label><input type="text" name="city_zip" class="form-input" placeholder="Woodbridge, VA 22191" /></div>
+            <div class="form-group"><label class="form-label">Best Time to Call</label>
+              <select name="best_call_time" class="form-select">
+                <option value="">Any time</option>
+                <option>Morning (9AM–12PM)</option>
+                <option>Afternoon (12PM–3PM)</option>
+                <option>Late Afternoon (3PM–6PM)</option>
+              </select>
+            </div>
+            <div class="form-group full"><label class="form-label">Product or Service of Interest</label>
+              <select name="product_interest" class="form-select">
+                <option value="">Select a category (optional)</option>
+                <option>Lift Chairs</option><option>Power Scooters</option><option>Power Wheelchairs</option>
+                <option>Manual Wheelchairs</option><option>Hospital Beds</option><option>Walkers & Rollators</option>
+                <option>Bath Safety Equipment</option><option>Oxygen Therapy</option><option>Equipment Rental</option>
+                <option>Financing Options</option><option>Medicare / Insurance Billing</option><option>Repair & Maintenance</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-group full"><label class="form-label">Your Message <span>*</span></label><textarea name="message" class="form-textarea" placeholder="Tell us how we can help…" required></textarea></div>
+            <div class="form-group full"><label class="form-label">How Did You Hear About Us?</label>
+              <select name="how_heard" class="form-select">
+                <option value="">Select…</option>
+                <option>Google Search</option><option>Doctor or Therapist Referral</option>
+                <option>Friend or Family</option><option>Facebook / Social Media</option>
+                <option>Drove Past the Store</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="contact-sidebar">
+      <div class="info-card">
+        <div class="info-card-header"><h3>Contact Information</h3><p>Multiple ways to reach our team</p></div>
+        <div class="info-list">
+          <div class="info-row"><div class="info-icon" style="background:#FDECEA;"><svg viewBox="0 0 24 24" fill="none" stroke="#CC1B1B" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg></div><div><div class="info-label">Phone</div><div class="info-value">{{ site.phone }}</div><div class="info-sub">Answered live during business hours</div></div></div>
+          <div class="info-row"><div class="info-icon" style="background:#E0F5F4;"><svg viewBox="0 0 24 24" fill="none" stroke="#00A89D" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="info-label">Email</div><div class="info-value">{{ site.email }}</div><div class="info-sub">Response within 2 business hours</div></div></div>
+          <div class="info-row"><div class="info-icon" style="background:#FFF3E0;"><svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg></div><div><div class="info-label">Address</div><div class="info-value">{{ site.address }}</div><div class="info-sub">Free parking available</div></div></div>
+        </div>
+      </div>
+
+      <div class="hours-card">
+        <div class="hours-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h3>Store Hours</h3></div>
+        <div class="hours-list">
+          <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time open">{{ site.hours_weekday }}</span></div>
+          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">{{ site.hours_saturday }}</span></div>
+          <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">{{ site.hours_sunday }}</span></div>
+        </div>
+        <div class="hours-open-badge"><div class="hours-open-dot"></div>We are open now — call us anytime during business hours</div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-placeholder">
+          <div class="map-pin">
+            <div class="map-pin-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="map-pin-tail"></div>
+            <div class="map-pin-label">Mandad Medical Supply</div>
+          </div>
+        </div>
+        <div class="map-footer">
+          <div class="map-address"><strong>14535 Jefferson Davis Hwy</strong>Woodbridge, VA 22191</div>
+          <a href="https://maps.google.com/?q=14535+Jefferson+Davis+Highway+Woodbridge+VA+22191" target="_blank" class="btn-directions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 Mandad Medical Supply LLC. All rights reserved. Woodbridge, Virginia.</p>
+      <div class="footer-links-row">
+        <a href="{% url 'core:about' %}"    class="footer-link-sm">About Us</a>
+        <a href="{% url 'products:list' %}" class="footer-link-sm">Products</a>
+        <a href="{% url 'rentals:list' %}"  class="footer-link-sm">Rentals</a>
+        <a href="{% url 'core:contact' %}"  class="footer-link-sm">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+  <script src="{% static 'js/contact.js' %}"></script>
+  <script src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>
