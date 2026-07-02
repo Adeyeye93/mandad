@@ -647,20 +647,44 @@ footer { background: var(--dark); }
 .back-top.visible{opacity:1;transform:translateY(0);}
 .back-top svg{width:18px;height:18px;color:#fff;}
 
+/* ── MOBILE NAV TOGGLE ── */
+.nav-toggle{display:none;width:40px;height:40px;align-items:center;justify-content:center;border-radius:var(--radius-sm);flex-shrink:0;}
+.nav-toggle svg{width:22px;height:22px;color:var(--dark);}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   nav,.topbar,.accra-hero,.how-section,.why-section,.products-section,.faq-section,.accra-cta,.footer-bottom{padding-left:24px;padding-right:24px;}
   .accra-hero-inner{grid-template-columns:1fr;gap:36px;}
   .why-inner{grid-template-columns:1fr;gap:40px;}
   .prod-cats-grid{grid-template-columns:1fr 1fr;}
-  .nav-links{display:none;}
+  .nav-search{width:200px;}
+}
+@media(max-width:900px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;align-items:stretch;gap:0;padding:8px;border-bottom:1px solid var(--gray-100);box-shadow:var(--shadow-lg);}
+  .nav-links.mobile-open{display:flex;}
+  .nav-link{padding:12px 14px;border-radius:var(--radius-sm);}
+  .nav-toggle{display:flex;}
+  .nav-search{display:none;}
 }
 @media(max-width:768px){
   .topbar{display:none;}
-  .accra-hero{padding-top:48px;min-height:auto;}
+  .accra-hero{padding-top:48px;padding-left:24px;padding-right:24px;min-height:auto;}
   .accra-hero h1{font-size:32px;}
   .steps-grid{grid-template-columns:1fr;gap:20px;}
   .steps-grid::before{display:none;}
   .prod-cats-grid{grid-template-columns:1fr 1fr;}
   .footer-bottom{flex-direction:column;gap:10px;text-align:center;}
+  .route-stats{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  nav,.accra-hero,.how-section,.why-section,.products-section,.faq-section,.accra-cta{padding-left:16px;padding-right:16px;}
+  .nav-logo img{height:34px;}
+  .accra-hero h1{font-size:26px;}
+  .hero-actions{flex-direction:column;align-items:stretch;}
+  .hero-actions a,.hero-actions button{justify-content:center;}
+  .prod-cats-grid{grid-template-columns:1fr;}
+  .accra-route-card{padding:20px;}
+  .cta-actions{flex-direction:column;align-items:stretch;}
+  .accra-cta h2{font-size:24px;}
+  .footer-links-row{flex-wrap:wrap;justify-content:center;gap:12px;}
 }

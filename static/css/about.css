@@ -207,6 +207,10 @@
     .back-top.visible{opacity:1;transform:translateY(0);}
     .back-top svg{width:18px;height:18px;color:#fff;}
 
+    /* ── MOBILE NAV TOGGLE ── */
+    .nav-toggle{display:none;width:40px;height:40px;align-items:center;justify-content:center;border-radius:var(--radius-sm);flex-shrink:0;}
+    .nav-toggle svg{width:22px;height:22px;color:var(--dark);}
+
     /* ── RESPONSIVE ── */
     @media(max-width:1024px){
       nav,.topbar,.about-hero,.mission-section,.story-section,.team-section,.diff-section,.community-section,.about-cta,.footer-bottom{padding-left:24px;padding-right:24px;}
@@ -214,11 +218,18 @@
       .hero-stats-grid{grid-template-columns:repeat(4,1fr);}
       .mission-inner,.community-inner{grid-template-columns:1fr;gap:40px;}
       .diff-grid{grid-template-columns:1fr 1fr;}
-      .nav-links{display:none;}
+      .nav-search{width:200px;}
+    }
+    @media(max-width:900px){
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;align-items:stretch;gap:0;padding:8px;border-bottom:1px solid var(--gray-100);box-shadow:var(--shadow-lg);}
+      .nav-links.mobile-open{display:flex;}
+      .nav-link{padding:12px 14px;border-radius:var(--radius-sm);}
+      .nav-toggle{display:flex;}
+      .nav-search{display:none;}
     }
     @media(max-width:768px){
       .topbar{display:none;}
-      .about-hero{padding-top:48px;}
+      .about-hero{padding-top:48px;padding-left:24px;padding-right:24px;}
       .about-hero h1{font-size:32px;}
       .hero-stats-grid{grid-template-columns:1fr 1fr;}
       .team-grid{grid-template-columns:1fr;}
@@ -228,4 +239,18 @@
       .tl-dot{left:8px;}
       .tl-content{padding-left:40px;}
       .footer-bottom{flex-direction:column;gap:10px;text-align:center;}
+      .mission-img-badge,.why-badge{position:static;margin-top:-40px;margin-left:auto;width:fit-content;}
+    }
+    @media(max-width:480px){
+      nav,.about-hero,.mission-section,.story-section,.team-section,.diff-section,.community-section,.about-cta{padding-left:16px;padding-right:16px;}
+      .nav-logo img{height:34px;}
+      .about-hero h1{font-size:26px;}
+      .about-hero-desc{font-size:14px;}
+      .hero-actions{flex-direction:column;align-items:stretch;}
+      .hero-actions a,.hero-actions button{justify-content:center;}
+      .hero-stats-grid{grid-template-columns:1fr;}
+      .hero-stat-num{font-size:32px;}
+      .cta-actions{flex-direction:column;align-items:stretch;}
+      .about-cta h2{font-size:24px;}
+      .footer-links-row{flex-wrap:wrap;justify-content:center;gap:12px;}
     }

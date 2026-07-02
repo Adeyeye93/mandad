@@ -1208,6 +1208,10 @@
     .back-top:hover { background: var(--blue-dark); transform: translateY(-2px); }
     .back-top svg { width:18px; height:18px; color:#fff; }
 
+    /* ── MOBILE NAV TOGGLE ── */
+    .nav-toggle { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: var(--radius-sm); flex-shrink: 0; }
+    .nav-toggle svg { width: 22px; height: 22px; color: var(--dark); }
+
     /* ─────────────────────────────────────────────
        RESPONSIVE
     ───────────────────────────────────────────── */
@@ -1217,7 +1221,7 @@
     }
     @media (max-width: 1024px) {
       nav { padding: 0 24px; }
-      .nav-search { width: 240px; }
+      .nav-search { width: 200px; }
       .cat-bar { padding: 0 24px; }
       .section { padding: 48px 24px; }
       .trust-bar { padding: 16px 24px; }
@@ -1229,10 +1233,15 @@
       .split-panel { padding: 48px 32px; }
       .about-strip { padding: 48px 24px; gap: 40px; }
     }
+    @media (max-width: 900px) {
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); flex-direction: column; align-items: stretch; gap: 0; padding: 8px; border-bottom: 1px solid var(--gray-100); box-shadow: var(--shadow-lg); }
+      .nav-links.mobile-open { display: flex; }
+      .nav-link { padding: 12px 14px; border-radius: var(--radius-sm); }
+      .nav-toggle { display: flex; }
+      .nav-search { display: none; }
+    }
     @media (max-width: 768px) {
       .topbar { display: none; }
-      .nav-links { display: none; }
-      .nav-search { width: 180px; }
       .hero { grid-template-columns: 1fr; }
       .hero-sidebar { display: none; }
       .hero-slider { height: 340px; }
@@ -1248,4 +1257,15 @@
 
       .trust-bar { flex-wrap: wrap; gap: 12px; }
       .trust-divider { display: none; }
+    }
+    @media (max-width: 480px) {
+      nav, .cat-bar, .section, .trust-bar, .services-bar, .topbar { padding-left: 16px; padding-right: 16px; }
+      .nav-logo img { height: 34px; }
+      .hero-slider { height: 260px; }
+      .slide-title { font-size: 22px; }
+      .product-grid, .product-grid-4 { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .cat-grid { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
+      .footer-bottom { padding-left: 16px; padding-right: 16px; flex-direction: column; gap: 10px; text-align: center; }
+      .split-panel { padding: 32px 20px; }
     }

@@ -728,6 +728,10 @@
     .back-top:hover { background: var(--blue-dark); }
     .back-top svg { width: 18px; height: 18px; color: #fff; }
 
+    /* ── MOBILE NAV TOGGLE ── */
+    .nav-toggle { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: var(--radius-sm); flex-shrink: 0; }
+    .nav-toggle svg { width: 22px; height: 22px; color: var(--dark); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) { .rental-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 1024px) {
@@ -736,16 +740,35 @@
       .rental-hero-inner { grid-template-columns: 1fr; }
       .rental-hero-stats { flex-direction: row; flex-wrap: wrap; }
       .hero-stat-card { flex: 1; min-width: 120px; }
-      .nav-links { display: none; }
       .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
       .steps-grid::before { display: none; }
+      .nav-search { width: 200px; }
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); flex-direction: column; align-items: stretch; gap: 0; padding: 8px; border-bottom: 1px solid var(--gray-100); box-shadow: var(--shadow-lg); }
+      .nav-links.mobile-open { display: flex; }
+      .nav-link { padding: 12px 14px; border-radius: var(--radius-sm); }
+      .nav-toggle { display: flex; }
+      .nav-search { display: none; }
     }
     @media (max-width: 768px) {
       .topbar { display: none; }
+      .rental-hero h1 { font-size: 32px; }
       .rental-grid { grid-template-columns: 1fr; }
       .benefits-bar { flex-wrap: wrap; }
       .benefit-item { min-width: 50%; border-bottom: 1px solid rgba(255,255,255,0.08); }
       .form-grid { grid-template-columns: 1fr; }
       .rc-pricing { grid-template-columns: repeat(3, 1fr); }
       .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      nav, .breadcrumb-bar, .how-section, .benefits-bar, .page-body, .faq-section, .cta-banner { padding-left: 16px; padding-right: 16px; }
+      .nav-logo img { height: 34px; }
+      .rental-hero { padding-left: 16px; padding-right: 16px; }
+      .rental-hero h1 { font-size: 26px; }
+      .benefit-item { min-width: 100%; }
+      .rc-pricing { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+      .cta-banner h2 { font-size: 24px; }
     }

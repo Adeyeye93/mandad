@@ -203,18 +203,39 @@
     .back-top.visible{opacity:1;transform:translateY(0);}
     .back-top svg{width:18px;height:18px;color:#fff;}
 
+    /* ── MOBILE NAV TOGGLE ── */
+    .nav-toggle{display:none;width:40px;height:40px;align-items:center;justify-content:center;border-radius:var(--radius-sm);flex-shrink:0;}
+    .nav-toggle svg{width:22px;height:22px;color:var(--dark);}
+
     /* ── RESPONSIVE ── */
     @media(max-width:1100px){.contact-body{grid-template-columns:1fr 340px;}}
     @media(max-width:1024px){
       nav,.topbar,.page-hero,.quick-bar-inner,.contact-body,.faq-strip,.footer-bottom{padding-left:24px;padding-right:24px;}
       .quick-bar-inner{grid-template-columns:repeat(2,1fr);}
-      .nav-links{display:none;}
+      .nav-search{width:200px;}
+    }
+    @media(max-width:900px){
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;align-items:stretch;gap:0;padding:8px;border-bottom:1px solid var(--gray-100);box-shadow:var(--shadow-lg);}
+      .nav-links.mobile-open{display:flex;}
+      .nav-link{padding:12px 14px;border-radius:var(--radius-sm);}
+      .nav-toggle{display:flex;}
+      .nav-search{display:none;}
     }
     @media(max-width:768px){
       .topbar{display:none;}
-      .contact-body{grid-template-columns:1fr;}
+      .page-hero{padding-left:24px;padding-right:24px;}
+      .page-hero h1{font-size:28px;}
+      .contact-body{grid-template-columns:1fr;padding-left:24px;padding-right:24px;}
       .form-grid{grid-template-columns:1fr;}
       .faq-grid{grid-template-columns:1fr;}
       .social-row{flex-wrap:wrap;}
+      .map-footer{flex-direction:column;align-items:flex-start;gap:10px;}
       .footer-bottom{flex-direction:column;gap:10px;text-align:center;}
+    }
+    @media(max-width:480px){
+      nav,.page-hero,.quick-bar-inner,.contact-body,.faq-strip{padding-left:16px;padding-right:16px;}
+      .nav-logo img{height:34px;}
+      .quick-bar-inner{grid-template-columns:1fr;}
+      .quick-item{border-right:none;border-bottom:1px solid var(--gray-100);}
+      .form-card-body,.form-card-header{padding-left:20px;padding-right:20px;}
     }
