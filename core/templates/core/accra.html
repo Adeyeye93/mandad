@@ -20,9 +20,9 @@
       <span>14535 Jefferson Davis Highway, Woodbridge, VA 22191</span>
       <div class="topbar-sep"></div>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <span>Mon–Fri 10AM–6PM · Sat 10AM–4PM · Sun Closed</span>
+      <span>Mon–Fri 9AM–6PM · Sat 10AM–4PM</span>
       <div class="topbar-sep"></div>
-      <a href="mailto:mandadmed@comcast.net">mandadmed@comcast.net</a>
+      <a href="mailto:sales@mandadmedical.com">sales@mandadmedical.com</a>
     </div>
     <div class="topbar-right">
       <div class="topbar-phone">
@@ -45,6 +45,9 @@
     <a href="{% url 'core:home' %}" class="nav-logo">
       <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
     </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
 
     <form method="get" action="{% url 'products:list' %}" class="nav-search">
       <input type="text" name="q" class="nav-search-input" placeholder="Search products…" />
@@ -109,7 +112,7 @@
             <div>
               <div class="route-info-label">Woodbridge Showroom — Order From</div>
               <div class="route-info-name">14535 Jefferson Davis Hwy, VA</div>
-              <div class="route-info-sub">(703) 910-6264 · Mon–Fri 10AM–6PM, Sat 10AM–4PM</div>
+              <div class="route-info-sub">(703) 910-6264 · Mon–Fri 9AM–6PM, Sat 10AM–4PM</div>
             </div>
           </div>
 
@@ -344,7 +347,7 @@
       <div class="products-note reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <p>
-          <strong>Ready to order?</strong> Call us at <strong>(703) 910-6264</strong> or email <a href="mailto:ultimatemandad@gmail.com" style="color:var(--blue);font-weight:600;">ultimatemandad@gmail.com</a>. For Ghana branch enquiries call <strong>+233 59 317 3330</strong>. We'll confirm availability and walk you through the full process — we're here 24/7 for customer support.
+          <strong>Ready to order?</strong> Call us at <strong>(703) 910-6264</strong> or email <a href="mailto:sales@mandadmedical.com" style="color:var(--blue);font-weight:600;">sales@mandadmedical.com</a>. For Ghana branch enquiries call <strong>+233 59 317 3330</strong>. We'll confirm availability and walk you through the full process during business hours.
         </p>
       </div>
     </div>
@@ -459,6 +462,7 @@
 
   <script src="{% static 'js/accra.js' %}"></script>
 
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
   <script src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@ if not SECRET_KEY:
     raise ValueError('SECRET_KEY environment variable is not set')
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'mandadmedical.com').split(',')
 
 INSTALLED_APPS = [
@@ -108,31 +108,34 @@ if _email_host:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = _email_host
     EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
-    EMAIL_USE_TLS = True
+    if EMAIL_PORT == 465:
+        EMAIL_USE_SSL = True
+    else:
+        EMAIL_USE_TLS = True
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 else:
     # Fallback to console backend if not configured
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'mandadmed@comcast.net')
-ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'mandadmed@comcast.net')
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'sales@mandadmedical.com')
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'sales@mandadmedical.com')
 
-# Security Settings for Production
-if not DEBUG:
-    # HTTPS/SSL
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_SECONDS = 31536000  # 1 year
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
+# # Security Settings for Production
+# if not DEBUG:
+#     # HTTPS/SSL
+#     SECURE_SSL_REDIRECT = True
+#     SESSION_COOKIE_SECURE = True
+#     CSRF_COOKIE_SECURE = True
+#     SECURE_HSTS_SECONDS = 31536000  # 1 year
+#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#     SECURE_HSTS_PRELOAD = True
     
-    # Additional security headers
-    SECURE_BROWSER_XSS_FILTER = True
-    X_FRAME_OPTIONS = 'DENY'
-    SECURE_CONTENT_SECURITY_POLICY = {
-        'default-src': ("'self'",),
-        'style-src': ("'self'", "'unsafe-inline'"),
-        'script-src': ("'self'",),
-    }
+#     # Additional security headers
+#     SECURE_BROWSER_XSS_FILTER = True
+#     X_FRAME_OPTIONS = 'DENY'
+#     SECURE_CONTENT_SECURITY_POLICY = {
+#         'default-src': ("'self'",),
+#         'style-src': ("'self'", "'unsafe-inline'"),
+#         'script-src': ("'self'",),
+#     }

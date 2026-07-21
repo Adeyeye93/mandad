@@ -1,33 +1,4 @@
-// ── Slider ─────────────────────────────────────────────────────
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-slide');
-    const totalSlides = slides.length;
-    let autoSlide;
-
-    function showSlide(n) {
-      slides.forEach(s => s.classList.remove('active'));
-      slides[n].classList.add('active');
-      currentSlide = n;
-    }
-    function nextSlide() {
-      showSlide((currentSlide + 1) % totalSlides);
-      resetAuto();
-    }
-    function prevSlide() {
-      showSlide((currentSlide - 1 + totalSlides) % totalSlides);
-      resetAuto();
-    }
-    function goSlide(n) {
-      showSlide(n);
-      resetAuto();
-    }
-    function resetAuto() {
-      clearInterval(autoSlide);
-      autoSlide = setInterval(nextSlide, 5000);
-    }
-    autoSlide = setInterval(nextSlide, 5000);
-
-    // ── Scroll Reveal ──────────────────────────────────────────────
+// ── Scroll Reveal ──────────────────────────────────────────────
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
       { threshold: 0.1 }

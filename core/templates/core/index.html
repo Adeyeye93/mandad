@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mandad Medical Supply — Woodbridge, Virginia</title>
-  <meta name="description" content="Durable medical equipment in Woodbridge, VA. Lift chairs, power scooters, wheelchairs. Rental and financing available." />
+  <meta name="description" content="Durable medical equipment in Woodbridge, VA. Lift chairs, power scooters, wheelchairs. Rental options available." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
@@ -22,7 +22,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       <span>Mon–Fri 9AM–6PM · Sat 10AM–4PM</span>
       <div class="topbar-sep"></div>
-      <a href="mailto:mandadmed@comcast.net">mandadmed@comcast.net</a>
+      <a href="mailto:sales@mandadmedical.com">sales@mandadmedical.com</a>
     </div>
     <div class="topbar-right">
       <div class="topbar-phone">
@@ -36,7 +36,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
 
-      <div class="topbar-badge">Free Delivery Available</div>
+      <div class="topbar-badge">Delivery Available</div>
     </div>
   </div>
 
@@ -45,6 +45,9 @@
     <a href="{% url 'core:home' %}" class="nav-logo">
       <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
     </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
 
     <form method="get" action="{% url 'products:list' %}" class="nav-search">
       <input type="text" name="q" class="nav-search-input" placeholder="Search lift chairs, wheelchairs…" />
@@ -71,158 +74,104 @@
     </div>
   </nav>
 
+  <!-- ══════════════ STORY VIDEO (primary hero — full viewport) ══════════════ -->
+  <section class="story-video" id="storyVideo">
+    <video
+      class="story-video__video"
+      id="heroVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src="https://storage.googleapis.com/msgsndr/IIOBZ0wxclvs3GvhoBq5/media/6706052743fa9607fe59e726.mp4" type="video/mp4" />
+    </video>
+
+    <div class="story-video__overlay" aria-hidden="true"></div>
+
+    <div class="story-video__content">
+      <div class="story-video__tag">
+        <div class="story-video__tag-dot"></div>
+        Serving Northern Virginia Since 2010
+      </div>
+      <h1 class="story-video__title">More Than a Medical<br /><em>Supply Store</em></h1>
+      <p class="story-video__desc">
+        For over a decade, Mandad Medical Supply has been the trusted partner for families,
+        caregivers, and healthcare professionals across Northern Virginia — helping people
+        live independently and comfortably in their own homes.
+      </p>
+      <div class="story-video__actions">
+        <a href="{% url 'products:list' %}" class="btn-video-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Browse Products
+        </a>
+        <a href="{% url 'core:about' %}" class="btn-video-secondary">Our Story</a>
+      </div>
+    </div>
+
+    <button
+      class="story-video__sound"
+      id="soundBtn"
+      onclick="toggleSound()"
+      aria-label="Toggle sound"
+      title="Toggle sound"
+    >
+      <svg id="iconMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <line x1="23" y1="9" x2="17" y2="15"/>
+        <line x1="17" y1="9" x2="23" y2="15"/>
+      </svg>
+      <svg id="iconSound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M19.07 4.93a10 10 0 010 14.14"/>
+        <path d="M15.54 8.46a5 5 0 010 7.07"/>
+      </svg>
+    </button>
+
+    <a href="#catBar" class="story-video__scroll" aria-label="Scroll to explore">
+      <span class="sv-scroll-text">Scroll</span>
+      <div class="sv-scroll-line"></div>
+    </a>
+
+    <div class="story-video__stats" role="list">
+      <div class="story-video__stat" role="listitem">
+        <div class="svs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <div class="svs-num">10+</div>
+          <div class="svs-label">Years serving Northern Virginia</div>
+        </div>
+      </div>
+      <div class="story-video__stat" role="listitem">
+        <div class="svs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div>
+          <div class="svs-num">3K+</div>
+          <div class="svs-label">Customers helped across the region</div>
+        </div>
+      </div>
+      <div class="story-video__stat" role="listitem">
+        <div class="svs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <div>
+          <div class="svs-num">500+</div>
+          <div class="svs-label">Products across 8 categories</div>
+        </div>
+      </div>
+      <div class="story-video__stat" role="listitem">
+        <div class="svs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div>
+          <div class="svs-num">4.8★</div>
+          <div class="svs-label">Google rating · 280+ reviews</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════════ CATEGORY BAR ══════════════ -->
-  <div class="cat-bar">
+  <div class="cat-bar" id="catBar">
     <a href="{% url 'products:list' %}" class="cat-bar-item active">All Categories</a>
     {% for category in categories %}
       <a href="{% url 'products:list' %}?category={{ category.slug }}" class="cat-bar-item">{{ category.name }}</a>
     {% endfor %}
-  </div>
-
-  <!-- ══════════════ HERO ══════════════ -->
-  <div class="hero">
-
-    <!-- Slider -->
-    <div class="hero-slider" id="slider">
-      <!-- Slide 1 -->
-      <div class="hero-slide active">
-        <div class="hero-slide-bg slide-bg-1">
-          <div class="slide-content">
-            <div class="slide-tag">⭐ Best Seller</div>
-            <h1 class="slide-title">Premium Lift Chairs<br /><em>Comfort & Independence</em></h1>
-            <p class="slide-desc">Industry-leading lift chairs from Golden, Pride, and Journey. Financing available with approved credit — own yours today.</p>
-            <div class="slide-actions">
-              <a href="{% url 'products:list' %}?category=lift-chairs" class="btn-slide-primary">
-                Shop Lift Chairs
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="{% url 'rentals:list' %}" class="btn-slide-secondary">View Rental Options</a>
-            </div>
-          </div>
-          <div class="slide-product-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/><line x1="12" y1="12" x2="12.01" y2="12"/></svg>
-          </div>
-          <div class="slider-dots">
-            <div class="slider-dot active" onclick="goSlide(0)"></div>
-            <div class="slider-dot" onclick="goSlide(1)"></div>
-            <div class="slider-dot" onclick="goSlide(2)"></div>
-          </div>
-          <div class="slider-arrows">
-            <button class="slider-arrow" onclick="prevSlide()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button class="slider-arrow" onclick="nextSlide()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="hero-slide">
-        <div class="hero-slide-bg slide-bg-2">
-          <div class="slide-content">
-            <div class="slide-tag">🛴 Most Popular</div>
-            <h1 class="slide-title">Power Scooters<br /><em>Move With Freedom</em></h1>
-            <p class="slide-desc">Regain independence with our selection of 3-wheel and 4-wheel power scooters. Available for purchase or rental.</p>
-            <div class="slide-actions">
-              <a href="{% url 'products:list' %}?category=power-scooters" class="btn-slide-primary">
-                Shop Scooters
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="{% url 'rentals:list' %}" class="btn-slide-secondary">Rent from $80/month</a>
-            </div>
-          </div>
-          <div class="slide-product-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M3 19H1V7l3-4h9l4 5h3l3 4v3h-2"/><path d="M11 19H7"/></svg>
-          </div>
-          <div class="slider-dots">
-            <div class="slider-dot" onclick="goSlide(0)"></div>
-            <div class="slider-dot active" onclick="goSlide(1)"></div>
-            <div class="slider-dot" onclick="goSlide(2)"></div>
-          </div>
-          <div class="slider-arrows">
-            <button class="slider-arrow" onclick="prevSlide()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button class="slider-arrow" onclick="nextSlide()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="hero-slide">
-        <div class="hero-slide-bg slide-bg-3">
-          <div class="slide-content">
-            <div class="slide-tag">♿ New Arrivals</div>
-            <h1 class="slide-title">Power Wheelchairs<br /><em>Advanced Mobility</em></h1>
-            <p class="slide-desc">State-of-the-art power wheelchairs built for comfort, durability, and long-range use. Medicare accepted.</p>
-            <div class="slide-actions">
-              <a href="{% url 'products:list' %}?category=power-wheelchairs" class="btn-slide-primary">
-                Shop Wheelchairs
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="{% url 'core:contact' %}" class="btn-slide-secondary">Talk to an Expert</a>
-            </div>
-          </div>
-          <div class="slide-product-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
-          </div>
-          <div class="slider-dots">
-            <div class="slider-dot" onclick="goSlide(0)"></div>
-            <div class="slider-dot" onclick="goSlide(1)"></div>
-            <div class="slider-dot active" onclick="goSlide(2)"></div>
-          </div>
-          <div class="slider-arrows">
-            <button class="slider-arrow" onclick="prevSlide()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button class="slider-arrow" onclick="nextSlide()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sidebar -->
-    <div class="hero-sidebar">
-      <!-- Featured product — first featured product from context -->
-      {% with featured_products|first as hero_product %}
-      {% if hero_product %}
-      <a href="{% url 'products:detail' hero_product.slug %}" class="hero-featured">
-        <div class="hero-featured-img">
-          {% if hero_product.main_image %}
-            <img src="{{ hero_product.main_image.url }}" alt="{{ hero_product.name }}" style="width:100%;height:100%;object-fit:cover;" />
-          {% else %}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:44px;height:44px;color:var(--blue)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-          {% endif %}
-        </div>
-        <div class="hero-featured-info">
-          <div class="hero-featured-price">From ${{ hero_product.purchase_price }}</div>
-          <div class="hero-featured-name">{{ hero_product.name }}</div>
-          <div class="hero-featured-desc">{{ hero_product.short_desc }}</div>
-          <span class="hero-featured-btn">View Details</span>
-        </div>
-      </a>
-      {% endif %}
-      {% endwith %}
-
-      <!-- Category mini grid -->
-      <div class="hero-cats">
-        {% for category in categories %}
-        <a href="{% url 'products:list' %}?category={{ category.slug }}" class="hero-cat">
-          <div class="hero-cat-icon" style="background:#FDECEA;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#CC1B1B" stroke-width="2" style="width:26px;height:26px"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
-          </div>
-          <div class="hero-cat-name">{{ category.name }}</div>
-          <div class="hero-cat-count">{{ category.products.count }} items</div>
-        </a>
-        {% endfor %}
-      </div>
-    </div>
   </div>
 
   <!-- ══════════════ TRUST BAR ══════════════ -->
@@ -234,7 +183,7 @@
     <div class="trust-divider"></div>
     <div class="trust-item">
       <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-      <div class="trust-text"><strong>Free Local Delivery</strong><span>Northern Virginia area</span></div>
+      <div class="trust-text"><strong>Local Delivery Available</strong><span>Cost depends on your location</span></div>
     </div>
     <div class="trust-divider"></div>
     <div class="trust-item">
@@ -505,7 +454,7 @@
     </a>
   </div>
 
-  <!-- ══════════════ RENTAL & FINANCING SPLIT ══════════════ -->
+  <!-- ══════════════ RENTAL & ACCRA SPLIT ══════════════ -->
   <div class="split-section">
     <div class="split-panel split-panel-left">
       <div class="split-icon" style="background:var(--blue-light);">
@@ -521,7 +470,7 @@
         </li>
         <li class="split-list-item">
           <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          Free delivery and pickup in Northern Virginia
+          Delivery and pickup available in Northern Virginia
         </li>
         <li class="split-list-item">
           <div class="split-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -581,7 +530,7 @@
         Mandad Medical Supply has been serving the Northern Virginia and greater DC metro area for over a decade. Located in Woodbridge, Virginia, we specialise in durable medical equipment that helps our customers maintain their independence and quality of life at home.
       </p>
       <p style="font-size:14px;color:var(--text-muted);line-height:1.8;">
-        We work directly with physicians, therapists, and insurance providers to ensure our customers receive the right equipment with minimal hassle. Our knowledgeable staff are available to help you navigate insurance coverage, financing, and product selection.
+        We work directly with physicians, therapists, and insurance providers to ensure our customers receive the right equipment with minimal hassle. Our knowledgeable staff are available to help you navigate insurance coverage and product selection.
       </p>
       <a href="{% url 'core:about' %}" class="about-read-more">
         Read our story
@@ -628,7 +577,7 @@
           </div>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            mandadmed@comcast.net
+            sales@mandadmedical.com
           </div>
         </div>
         <div class="footer-socials">
@@ -701,9 +650,8 @@
   </button>
 
   <script src="{% static 'js/index.js' %}"></script>
-
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
   <script src="{% static 'js/cart.js' %}"></script>
-  <script src="{% static 'js/index.js' %}"></script>
   <script>
   function idxAddCart(btn) {
     MandadCart.add(btn.dataset.id, btn.dataset.name, btn.dataset.price, 1, 'purchase', btn.dataset.img);
@@ -712,6 +660,21 @@
     btn.disabled = true;
     setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 1400);
   }
+
+  // ── Story video: sound toggle + autoplay fallback ──────────────
+  var heroVideo  = document.getElementById('heroVideo');
+  var iconMuted  = document.getElementById('iconMuted');
+  var iconSound  = document.getElementById('iconSound');
+
+  function toggleSound() {
+    heroVideo.muted = !heroVideo.muted;
+    iconMuted.style.display = heroVideo.muted ? '' : 'none';
+    iconSound.style.display = heroVideo.muted ? 'none' : '';
+  }
+
+  heroVideo.play().catch(function() {
+    console.info('Autoplay blocked — showing poster background.');
+  });
   </script>
 </body>
 </html>

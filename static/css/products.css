@@ -297,6 +297,7 @@
       .cart-drawer { width: 100%; }
     }
     @media (max-width: 480px) {
+      .nav-cta .btn-outline:not(:only-child), .nav-cta .btn-nav-outline:not(:only-child) { display: none; }
       nav, .page-header { padding-left: 16px; padding-right: 16px; }
       .nav-logo img { height: 34px; }
       .product-grid { grid-template-columns: 1fr; }

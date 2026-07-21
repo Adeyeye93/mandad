@@ -56,10 +56,6 @@
       const fmt = n => '$' + n.toLocaleString();
       document.getElementById('subtotalVal').textContent = fmt(total);
       document.getElementById('totalVal').textContent    = fmt(total);
-      // Update financing teaser
-      const monthly = Math.ceil(total / 24);
-      document.querySelector('.fin-teaser-amount').textContent = '$' + monthly + '/mo';
-      document.querySelector('.fin-teaser-sub').textContent    = fmt(total) + ' over 24 months · 0% interest';
     }
 
     // ── Add suggested item ──────────────────────────────────────────

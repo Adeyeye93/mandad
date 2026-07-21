@@ -34,7 +34,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
 
-      <div class="topbar-badge">Free Delivery Available</div>
+      <div class="topbar-badge">Delivery Available</div>
     </div>
   </div>
 
@@ -43,6 +43,9 @@
     <a href="{% url 'core:home' %}" class="nav-logo">
       <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
     </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
     <form method="get" action="{% url 'products:list' %}" class="nav-search">
       <input type="text" name="q" class="nav-search-input" placeholder="Search products…" />
       <button type="submit" class="nav-search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
@@ -150,7 +153,7 @@
                 <option>Lift Chairs</option><option>Power Scooters</option><option>Power Wheelchairs</option>
                 <option>Manual Wheelchairs</option><option>Hospital Beds</option><option>Walkers & Rollators</option>
                 <option>Bath Safety Equipment</option><option>Oxygen Therapy</option><option>Equipment Rental</option>
-                <option>Financing Options</option><option>Medicare / Insurance Billing</option><option>Repair & Maintenance</option><option>Other</option>
+                <option>Medicare / Insurance Billing</option><option>Repair & Maintenance</option><option>Other</option>
               </select>
             </div>
             <div class="form-group full"><label class="form-label">Your Message <span>*</span></label><textarea name="message" class="form-textarea" placeholder="Tell us how we can help…" required></textarea></div>
@@ -229,6 +232,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
   <script src="{% static 'js/contact.js' %}"></script>
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
   <script src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>

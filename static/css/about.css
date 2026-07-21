@@ -242,6 +242,7 @@
       .mission-img-badge,.why-badge{position:static;margin-top:-40px;margin-left:auto;width:fit-content;}
     }
     @media(max-width:480px){
+      .nav-cta .btn-outline:not(:only-child), .nav-cta .btn-nav-outline:not(:only-child) { display: none; }
       nav,.about-hero,.mission-section,.story-section,.team-section,.diff-section,.community-section,.about-cta{padding-left:16px;padding-right:16px;}
       .nav-logo img{height:34px;}
       .about-hero h1{font-size:26px;}

@@ -34,7 +34,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
 
-      <div class="topbar-badge">Free Delivery Available</div>
+      <div class="topbar-badge">Delivery Available</div>
     </div>
   </div>
 
@@ -43,6 +43,9 @@
     <a href="{% url 'core:home' %}" class="nav-logo">
       <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
     </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
     <ul class="nav-links">
       <li><a href="{% url 'core:home' %}"     class="nav-link">Home</a></li>
       <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
@@ -144,8 +147,8 @@
               <div class="delivery-opts">
                 <div class="delivery-opt selected" onclick="selectDelivery(this)">
                   <div class="delivery-radio"><div class="delivery-radio-dot"></div></div>
-                  <div><div class="delivery-opt-name">Home Delivery &amp; Setup</div><div class="delivery-opt-sub">Free delivery and in-home setup throughout Northern Virginia</div></div>
-                  <div class="delivery-opt-price">Free</div>
+                  <div><div class="delivery-opt-name">Home Delivery &amp; Setup</div><div class="delivery-opt-sub">Delivery and in-home setup throughout Northern Virginia — cost depends on your location</div></div>
+                  <div class="delivery-opt-price">Varies</div>
                   <input type="radio" name="delivery_method" value="delivery" checked style="display:none;" />
                 </div>
                 <div class="delivery-opt" onclick="selectDelivery(this)">
@@ -181,7 +184,7 @@
           <div class="summary-items" id="summaryItems"></div>
           <div class="summary-divider"></div>
           <div class="summary-row"><span class="summary-row-key">Items in cart</span><span class="summary-row-val" id="summaryCount">0</span></div>
-          <div class="summary-row"><span class="summary-row-key">Delivery &amp; Setup</span><span class="summary-row-val green">Free</span></div>
+          <div class="summary-row"><span class="summary-row-key">Delivery &amp; Setup</span><span class="summary-row-val">Varies by location</span></div>
           <div class="summary-total">
             <span>Estimated Total</span>
             <div>
@@ -193,7 +196,7 @@
         <div class="trust-list">
           <div class="trust-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>We respond within 2 business hours</div>
           <div class="trust-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>No payment required to submit</div>
-          <div class="trust-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Free delivery and in-home setup</div>
+          <div class="trust-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Delivery and in-home setup available</div>
         </div>
       </div>
     </div><!-- /summary-sidebar -->
@@ -207,6 +210,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
   <script src="{% static 'js/cart.js' %}"></script>
   <script>
     function esc(s) {

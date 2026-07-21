@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equipment Rentals — Mandad Medical Supply</title>
-  <meta name="description" content="Rent durable medical equipment in Woodbridge VA. Lift chairs, scooters, wheelchairs, hospital beds. Free delivery." />
+  <meta name="description" content="Rent durable medical equipment in Woodbridge VA. Lift chairs, scooters, wheelchairs, hospital beds. Delivery available." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
@@ -34,7 +34,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
 
-      <div class="topbar-badge">Free Delivery on Rentals</div>
+      <div class="topbar-badge">Delivery Available on Rentals</div>
     </div>
   </div>
 
@@ -43,6 +43,9 @@
     <a href="{% url 'core:home' %}" class="nav-logo">
       <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
     </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
     <form method="get" action="{% url 'products:list' %}" class="nav-search">
       <input type="text" name="q" class="nav-search-input" placeholder="Search rental equipment…" />
       <button type="submit" class="nav-search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
@@ -70,7 +73,7 @@
       <div>
         <div class="rental-hero-tag"><div class="rental-hero-tag-dot"></div>Equipment Available Now</div>
         <h1>Rent Medical Equipment<br /><em>Without the Commitment</em></h1>
-        <p class="rental-hero-desc">Short-term or long-term rentals on lift chairs, scooters, wheelchairs, hospital beds and more. Free delivery and pickup throughout Northern Virginia. Cancel anytime with 30 days notice.</p>
+        <p class="rental-hero-desc">Short-term or long-term rentals on lift chairs, scooters, wheelchairs, hospital beds and more. Delivery and pickup available throughout Northern Virginia — cost depends on your location. Cancel anytime with 30 days notice.</p>
         <div class="rental-hero-actions">
           <a href="#rental-catalogue" class="btn-hero-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -82,7 +85,7 @@
       <div class="rental-hero-stats">
         <div class="hero-stat-card"><div class="hero-stat-num">{{ rentals.count }}</div><div class="hero-stat-label">Items Available Now</div></div>
         <div class="hero-stat-card"><div class="hero-stat-num">$60</div><div class="hero-stat-label">Starting Per Month</div></div>
-        <div class="hero-stat-card"><div class="hero-stat-num">Free</div><div class="hero-stat-label">Delivery & Pickup</div></div>
+        <div class="hero-stat-card"><div class="hero-stat-num">30 Days</div><div class="hero-stat-label">Cancellation Notice</div></div>
       </div>
     </div>
   </section>
@@ -113,11 +116,11 @@
 
   <!-- BENEFITS BAR -->
   <div class="benefits-bar">
-    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><div class="benefit-name">Free Delivery & Pickup</div><div class="benefit-sub">All Northern Virginia</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><div class="benefit-name">Delivery & Pickup Available</div><div class="benefit-sub">Cost depends on your location</div></div></div>
     <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="benefit-name">Fully Maintained</div><div class="benefit-sub">Repairs included at no cost</div></div></div>
     <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div><div><div class="benefit-name">Apply Toward Purchase</div><div class="benefit-sub">Rent payments count toward buying</div></div></div>
     <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="benefit-name">Flexible Duration</div><div class="benefit-sub">Weekly, monthly, or long-term</div></div></div>
-    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg></div><div><div class="benefit-name">24-Hour Support</div><div class="benefit-sub">Reach us any time</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg></div><div><div class="benefit-name">Friendly Support</div><div class="benefit-sub">Mon–Fri 9AM–6PM · Sat 10AM–4PM</div></div></div>
   </div>
 
   <!-- RENTAL CATALOGUE -->
@@ -258,6 +261,7 @@
 
   <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg></button>
   <script src="{% static 'js/rentals.js' %}"></script>
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
   <script src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>

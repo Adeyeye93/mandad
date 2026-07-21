@@ -33,7 +33,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
 
-      <div class="topbar-badge">Free Delivery Available</div>
+      <div class="topbar-badge">Delivery Available</div>
     </div>
   </div>
 
@@ -42,6 +42,9 @@
     <a href="{% url 'core:home' %}" class="nav-logo">
       <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
     </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
     <ul class="nav-links">
       <li><a href="{% url 'core:home' %}"     class="nav-link">Home</a></li>
       <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
@@ -133,6 +136,7 @@
     </div>
   </footer>
   <script>localStorage.removeItem('mandad_cart');</script>
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
   <script src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>

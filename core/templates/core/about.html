@@ -10,306 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{% static 'css/about.css' %}" />
-  <style>
-    /* ── VIDEO HERO ───────────────────────────────────────────────────── */
-
-    /*
-     * The video hero replaces the old about-hero entirely.
-     * It sits flush under the sticky nav (no gap) and fills the full
-     * viewport height so the video is the first and only thing the
-     * visitor sees on load.
-     */
-    .video-hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;          /* full viewport — immediately impactful */
-      min-height: 560px;
-      overflow: hidden;
-      background: var(--dark);/* fallback while video loads            */
-    }
-
-    /* ── Video element ── */
-    .video-hero__video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;      /* fills frame, never letterboxed         */
-      object-position: center;
-    }
-
-    /*
-     * Dark gradient overlay — heavier at bottom so text reads clearly
-     * against any video content without washing out the footage itself.
-     */
-    .video-hero__overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(10, 22, 40, 0.35)  0%,   /* light top — video visible   */
-          rgba(10, 22, 40, 0.15) 35%,   /* almost clear mid-section    */
-          rgba(10, 22, 40, 0.65) 72%,   /* darkens toward text         */
-          rgba(10, 22, 40, 0.88) 100%   /* solid near bottom           */
-        );
-    }
-
-    /* ── Content layer (sits above video + overlay) ── */
-    .video-hero__content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;   /* anchor to bottom — cinematic feel */
-      padding: 0 72px 64px;
-      max-width: 1100px;
-    }
-
-    /* Breadcrumb */
-    .video-hero__breadcrumb {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 20px;
-    }
-    .video-hero__breadcrumb a {
-      color: rgba(255,255,255,0.65);
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .video-hero__breadcrumb a:hover { color: #fff; }
-    .video-hero__breadcrumb svg { width: 12px; height: 12px; }
-
-    /* Pill tag */
-    .video-hero__tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      width: fit-content;
-      backdrop-filter: blur(6px);
-    }
-    .video-hero__tag-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--teal);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50%      { opacity:.5; transform:scale(1.3); }
-    }
-
-    /* Headline */
-    .video-hero__title {
-      font-size: clamp(36px, 5.5vw, 64px);
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: -1.5px;
-      line-height: 1.05;
-      margin-bottom: 18px;
-    }
-    .video-hero__title em {
-      color: var(--teal-mid, #80D4CF);
-      font-style: normal;
-    }
-
-    /* Subtitle */
-    .video-hero__desc {
-      font-size: clamp(14px, 1.4vw, 16px);
-      color: rgba(255,255,255,0.72);
-      line-height: 1.8;
-      max-width: 560px;
-      margin-bottom: 36px;
-    }
-
-    /* CTA row */
-    .video-hero__actions {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 52px;
-    }
-    .btn-video-primary {
-      padding: 14px 28px;
-      font-size: 14px;
-      font-weight: 700;
-      background: #fff;
-      color: var(--dark);
-      border-radius: var(--radius);
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      text-decoration: none;
-      transition: all .2s;
-    }
-    .btn-video-primary:hover {
-      background: var(--teal-light, #E0F5F4);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    }
-    .btn-video-primary svg { width: 15px; height: 15px; color: var(--teal); }
-
-    .btn-video-secondary {
-      padding: 14px 24px;
-      font-size: 14px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.85);
-      border: 1.5px solid rgba(255,255,255,0.3);
-      border-radius: var(--radius);
-      text-decoration: none;
-      transition: all .2s;
-    }
-    .btn-video-secondary:hover {
-      color: #fff;
-      border-color: rgba(255,255,255,0.7);
-      background: rgba(255,255,255,0.08);
-    }
-
-    /* ── Stat strip pinned to the bottom of the hero ── */
-    .video-hero__stats {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 3;
-      display: flex;
-      align-items: stretch;
-      background: rgba(10, 22, 40, 0.72);
-      backdrop-filter: blur(14px);
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .video-hero__stat {
-      flex: 1;
-      padding: 20px 28px;
-      border-right: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .video-hero__stat:last-child { border-right: none; }
-    .vhs-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius);
-      background: rgba(0,168,157,0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .vhs-icon svg { width: 20px; height: 20px; color: var(--teal); }
-    .vhs-num {
-      font-size: 26px;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: -0.5px;
-      line-height: 1;
-    }
-    .vhs-label {
-      font-size: 12px;
-      color: rgba(255,255,255,0.5);
-      margin-top: 3px;
-      line-height: 1.3;
-    }
-
-    /* ── Sound / mute toggle ── */
-    .video-hero__sound {
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      z-index: 4;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.12);
-      border: 1.5px solid rgba(255,255,255,0.2);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all .2s;
-    }
-    .video-hero__sound:hover { background: rgba(255,255,255,0.22); }
-    .video-hero__sound svg { width: 18px; height: 18px; color: #fff; }
-
-    /* ── Scroll indicator ── */
-    .video-hero__scroll {
-      position: absolute;
-      bottom: 98px;         /* sits just above the stat strip */
-      right: 32px;
-      z-index: 4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      opacity: 0.6;
-      transition: opacity .2s;
-      text-decoration: none;
-    }
-    .video-hero__scroll:hover { opacity: 1; }
-    .scroll-text {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #fff;
-      writing-mode: vertical-rl;
-    }
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: rgba(255,255,255,0.35);
-      position: relative;
-      overflow: hidden;
-    }
-    .scroll-line::after {
-      content: '';
-      position: absolute;
-      top: -100%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--teal);
-      animation: scrollDown 1.8s ease-in-out infinite;
-    }
-    @keyframes scrollDown {
-      0%   { top: -100%; }
-      100% { top: 100%;  }
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 1024px) {
-      .video-hero__content { padding: 0 32px 64px; }
-      .video-hero__stats   { flex-wrap: wrap; }
-      .video-hero__stat    { min-width: 50%; }
-    }
-    @media (max-width: 768px) {
-      .video-hero { height: 100svh; }
-      .video-hero__content { padding: 0 24px 56px; }
-      .video-hero__title { font-size: 32px; }
-      .video-hero__stats { display: grid; grid-template-columns: 1fr 1fr; }
-      .video-hero__stat  { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; }
-      .video-hero__scroll { display: none; }
-    }
-  </style>
 </head>
 <body>
 
@@ -334,7 +34,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
 
-      <div class="topbar-badge">Free Delivery Available</div>
+      <div class="topbar-badge">Delivery Available</div>
     </div>
   </div>
 
@@ -346,6 +46,9 @@
     <a href="{% url 'core:home' %}" class="nav-logo">
       <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
     </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
     <form method="get" action="{% url 'products:list' %}" class="nav-search">
       <input type="text" name="q" class="nav-search-input" placeholder="Search products…" />
       <button type="submit" class="nav-search-btn">
@@ -369,151 +72,59 @@
   </nav>
 
   <!-- ═══════════════════════════════════════════════════════════
-       VIDEO HERO
-       ───────────────────────────────────────────────────────────
-       Place the client's video file at:
-         static/videos/about-hero.mp4
-         static/videos/about-hero.webm   (optional, better compression)
-         static/img/about-hero-poster.jpg (first frame fallback image)
-
-       The <video> element is:
-         - autoplay + muted  → required by browsers for autoplay
-         - loop              → continuous background motion
-         - playsinline       → prevents full-screen takeover on iOS
-         - preload="auto"    → starts buffering immediately on load
-
-       If autoplay is blocked (e.g. power-saver mode), the poster
-       image is shown and the JS below reveals the CTA anyway so
-       the page is never stuck in a loading state.
+       ABOUT HERO
   ═══════════════════════════════════════════════════════════ -->
-  <section class="video-hero" id="videoHero">
-
-    <!-- Background video -->
-    <video
-      class="video-hero__video"
-      id="heroVideo"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    >
-      <source src="https://storage.googleapis.com/msgsndr/IIOBZ0wxclvs3GvhoBq5/media/6706052743fa9607fe59e726.mp4" type="video/mp4" />
-    </video>
-
-    <!-- Gradient overlay -->
-    <div class="video-hero__overlay" aria-hidden="true"></div>
-
-    <!-- Text content anchored to the bottom-left -->
-    <div class="video-hero__content">
-
-      <!-- Breadcrumb -->
-      <div class="video-hero__breadcrumb">
-        <a href="{% url 'core:home' %}">Home</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        About Us
-      </div>
-
-      <!-- Tag -->
-      <div class="video-hero__tag">
-        <div class="video-hero__tag-dot"></div>
-        Serving Northern Virginia Since 2010
-      </div>
-
-      <!-- Headline -->
-      <h1 class="video-hero__title">
-        More Than a Medical<br />
-        <em>Supply Store</em>
-      </h1>
-
-      <!-- Description -->
-      <p class="video-hero__desc">
-        For over a decade, Mandad Medical Supply has been the trusted partner for families,
-        caregivers, and healthcare professionals across Northern Virginia — helping people
-        live independently and comfortably in their own homes.
-      </p>
-
-      <!-- Actions -->
-      <div class="video-hero__actions">
-        <a href="{% url 'products:list' %}" class="btn-video-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          Browse Products
-        </a>
-        <a href="{% url 'core:contact' %}" class="btn-video-secondary">Get in Touch</a>
-      </div>
-
-    </div><!-- /video-hero__content -->
-
-    <!-- Mute / unmute toggle -->
-    <button
-      class="video-hero__sound"
-      id="soundBtn"
-      onclick="toggleSound()"
-      aria-label="Toggle sound"
-      title="Toggle sound"
-    >
-      <!-- Muted icon (shown by default since video starts muted) -->
-      <svg id="iconMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-        <line x1="23" y1="9" x2="17" y2="15"/>
-        <line x1="17" y1="9" x2="23" y2="15"/>
-      </svg>
-      <!-- Unmuted icon (hidden by default) -->
-      <svg id="iconSound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-        <path d="M19.07 4.93a10 10 0 010 14.14"/>
-        <path d="M15.54 8.46a5 5 0 010 7.07"/>
-      </svg>
-    </button>
-
-    <!-- Scroll cue -->
-    <a href="#about-mission" class="video-hero__scroll" aria-label="Scroll to learn more">
-      <span class="scroll-text">Scroll</span>
-      <div class="scroll-line"></div>
-    </a>
-
-    <!-- Stat strip pinned to the bottom of the hero -->
-    <div class="video-hero__stats" role="list">
-      <div class="video-hero__stat" role="listitem">
-        <div class="vhs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <div class="about-hero-left">
+        <div class="breadcrumb">
+          <a href="{% url 'core:home' %}">Home</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          About Us
         </div>
-        <div>
-          <div class="vhs-num">10+</div>
-          <div class="vhs-label">Years serving Northern Virginia</div>
+        <div class="hero-tag">
+          <div class="hero-dot"></div>
+          Serving Northern Virginia Since 2010
+        </div>
+        <h1>More Than a Medical<br /><em>Supply Store</em></h1>
+        <p class="about-hero-desc">
+          For over a decade, Mandad Medical Supply has been the trusted partner for families,
+          caregivers, and healthcare professionals across Northern Virginia — helping people
+          live independently and comfortably in their own homes.
+        </p>
+        <div class="hero-actions">
+          <a href="{% url 'products:list' %}" class="btn-hero-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Browse Products
+          </a>
+          <a href="{% url 'core:contact' %}" class="btn-hero-outline">Get in Touch</a>
         </div>
       </div>
-      <div class="video-hero__stat" role="listitem">
-        <div class="vhs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      <div class="hero-stats-grid">
+        <div class="hero-stat">
+          <div class="hero-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Years serving Northern Virginia</div>
         </div>
-        <div>
-          <div class="vhs-num">3K+</div>
-          <div class="vhs-label">Customers helped across the region</div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="hero-stat-num">3K+</div>
+          <div class="hero-stat-label">Customers helped across the region</div>
         </div>
-      </div>
-      <div class="video-hero__stat" role="listitem">
-        <div class="vhs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        <div class="hero-stat">
+          <div class="hero-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Products across 8 categories</div>
         </div>
-        <div>
-          <div class="vhs-num">500+</div>
-          <div class="vhs-label">Products across 8 categories</div>
-        </div>
-      </div>
-      <div class="video-hero__stat" role="listitem">
-        <div class="vhs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <div>
-          <div class="vhs-num">4.8★</div>
-          <div class="vhs-label">Google rating · 280+ reviews</div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="hero-stat-num">4.8★</div>
+          <div class="hero-stat-label">Google rating · 280+ reviews</div>
         </div>
       </div>
     </div>
-
   </section>
-  <!-- /VIDEO HERO -->
+  <!-- /ABOUT HERO -->
 
 
   <!-- MISSION -->
@@ -612,12 +223,12 @@
         <div class="diff-card reveal reveal-delay-2">
           <div class="diff-card-icon" style="background:rgba(249,115,22,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
           <div class="diff-card-title">Full-Service Delivery</div>
-          <div class="diff-card-desc">We bring it in, assemble it, position it, and walk you through every feature before we leave. Free throughout Northern Virginia.</div>
+          <div class="diff-card-desc">We bring it in, assemble it, position it, and walk you through every feature before we leave. Delivery cost depends on your location.</div>
         </div>
         <div class="diff-card reveal">
           <div class="diff-card-icon" style="background:rgba(147,51,234,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-          <div class="diff-card-title">Flexible Financing &amp; Rental</div>
-          <div class="diff-card-desc">0% financing, monthly rental plans, and the option to apply rental payments toward a purchase. We work with your budget.</div>
+          <div class="diff-card-title">Flexible Rental Plans</div>
+          <div class="diff-card-desc">Monthly rental plans with the option to apply rental payments toward a purchase. We work with your budget.</div>
         </div>
         <div class="diff-card reveal reveal-delay-1">
           <div class="diff-card-icon" style="background:rgba(16,185,129,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
@@ -665,26 +276,7 @@
   </button>
 
   <script src="{% static 'js/about.js' %}"></script>
-  <script>
-    // ── Sound toggle ───────────────────────────────────────────────
-    const video      = document.getElementById('heroVideo');
-    const iconMuted  = document.getElementById('iconMuted');
-    const iconSound  = document.getElementById('iconSound');
-
-    function toggleSound() {
-      video.muted = !video.muted;
-      iconMuted.style.display = video.muted ? '' : 'none';
-      iconSound.style.display = video.muted ? 'none' : '';
-    }
-
-    // ── Autoplay fallback ──────────────────────────────────────────
-    // If the browser blocks autoplay (e.g. power-saving mode on mobile),
-    // the content is still fully visible — the poster image shows through.
-    video.play().catch(() => {
-      // Video blocked — nothing to do; poster image already showing.
-      console.info('Autoplay blocked — showing poster image.');
-    });
-  </script>
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
   <script src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>

@@ -33,9 +33,9 @@ class TeamMember(models.Model):
 
 class SiteSettings(models.Model):
     """Single-row settings table for store info."""
-    phone        = models.CharField(max_length=30, default='(703) 494-7060')
-    email        = models.EmailField(default='info@mandadmedical.com')
-    address      = models.TextField(default='2103 Opitz Blvd, Woodbridge, VA 22191')
+    phone        = models.CharField(max_length=30, default='(703) 910-6264')
+    email        = models.EmailField(default='sales@mandadmedical.com')
+    address      = models.TextField(default='14535 Jefferson Davis Highway, Woodbridge, VA 22191')
     hours_weekday = models.CharField(max_length=60, default='9:00 AM – 6:00 PM')
     hours_saturday = models.CharField(max_length=60, default='10:00 AM – 4:00 PM')
     hours_sunday   = models.CharField(max_length=60, default='Closed')

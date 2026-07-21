@@ -1,11 +1,15 @@
+import logging
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.conf import settings
 
 from products.models import Product, Category, Brand
 from .models import Testimonial, TeamMember, SiteSettings
 from leads.models import Lead, NewsletterSubscriber
+
+logger = logging.getLogger(__name__)
 
 
 def home(request):
@@ -48,15 +52,15 @@ def contact(request):
 
         # Notify store
         try:
-            send_mail(
+            EmailMessage(
                 subject=f"[Mandad] New Contact Form — {lead.get_enquiry_type_display()}",
-                message=f"From: {lead.first_name} {lead.last_name}\nEmail: {lead.email}\nPhone: {lead.phone}\n\n{lead.message}",
+                body=f"From: {lead.first_name} {lead.last_name}\nEmail: {lead.email}\nPhone: {lead.phone}\n\n{lead.message}",
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.ADMIN_EMAIL],
-                fail_silently=True,
-            )
+                to=[settings.ADMIN_EMAIL],
+                reply_to=[lead.email] if lead.email else None,
+            ).send(fail_silently=False)
         except Exception:
-            pass
+            logger.exception("Failed to send contact form notification email for lead #%s", lead.pk)
 
         messages.success(request, 'Thank you! We will contact you within 2 business hours.')
         return redirect('core:contact')

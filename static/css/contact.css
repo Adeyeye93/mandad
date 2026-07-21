@@ -233,6 +233,7 @@
       .footer-bottom{flex-direction:column;gap:10px;text-align:center;}
     }
     @media(max-width:480px){
+      .nav-cta .btn-outline:not(:only-child), .nav-cta .btn-nav-outline:not(:only-child) { display: none; }
       nav,.page-hero,.quick-bar-inner,.contact-body,.faq-strip{padding-left:16px;padding-right:16px;}
       .nav-logo img{height:34px;}
       .quick-bar-inner{grid-template-columns:1fr;}

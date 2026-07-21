@@ -762,6 +762,7 @@
       .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
     }
     @media (max-width: 480px) {
+      .nav-cta .btn-outline:not(:only-child), .nav-cta .btn-nav-outline:not(:only-child) { display: none; }
       nav, .breadcrumb-bar, .how-section, .benefits-bar, .page-body, .faq-section, .cta-banner { padding-left: 16px; padding-right: 16px; }
       .nav-logo img { height: 34px; }
       .rental-hero { padding-left: 16px; padding-right: 16px; }

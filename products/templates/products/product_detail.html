@@ -34,7 +34,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
 
-      <div class="topbar-badge">Free Delivery Available</div>
+      <div class="topbar-badge">Delivery Available</div>
     </div>
   </div>
 
@@ -43,6 +43,9 @@
     <a href="{% url 'core:home' %}" class="nav-logo">
       <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
     </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
     <form method="get" action="{% url 'products:list' %}" class="nav-search">
       <input type="text" name="q" class="nav-search-input" placeholder="Search products…" />
       <button type="submit" class="nav-search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
@@ -113,7 +116,7 @@
       </div>
       <div class="gallery-trust">
         <div class="g-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>1-Year Warranty</div>
-        <div class="g-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Free Delivery</div>
+        <div class="g-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Delivery Available</div>
         <div class="g-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>30-Day Returns</div>
       </div>
     </div>
@@ -152,7 +155,7 @@
           <div class="pi-rental-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
           <div>
             <div class="pi-rental-price">From ${{ product.rental_monthly }}/month</div>
-            <div class="pi-rental-label">Rental available · Free delivery included</div>
+            <div class="pi-rental-label">Rental available · delivery cost depends on location</div>
           </div>
           <a href="{% url 'rentals:list' %}" class="pi-rental-link">Rent this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
@@ -214,7 +217,7 @@
       <div class="pi-divider"></div>
 
       <div class="delivery-info">
-        <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="di-text"><strong>Free delivery</strong> <span>— Northern Virginia, DC, and Maryland</span></div></div>
+        <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="di-text"><strong>Delivery available</strong> <span>— Northern Virginia, DC, and Maryland; cost depends on your location</span></div></div>
         <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="di-text"><strong>Delivery in 3–5 business days</strong> <span>— in-home setup included</span></div></div>
         <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/></svg></div><div class="di-text"><strong>30-day returns</strong> <span>— no restocking fee</span></div></div>
         <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="di-text"><strong>Medicare billing available</strong> <span>— ask us about coverage</span></div></div>
@@ -282,7 +285,7 @@
     <div class="tab-panel" id="tab-shipping">
       <div class="desc-content">
         <h3>Delivery Information</h3>
-        <p>We offer free in-home delivery and setup throughout Northern Virginia, including Woodbridge, Manassas, Stafford, Dumfries, Prince William County, Fairfax County, and surrounding areas.</p>
+        <p>We offer in-home delivery and setup throughout Northern Virginia, including Woodbridge, Manassas, Stafford, Dumfries, Prince William County, Fairfax County, and surrounding areas. Delivery cost depends on your location.</p>
         <h3>Returns Policy</h3>
         <p>We offer a 30-day return policy with no restocking fee. Contact us within 30 days of delivery and we will arrange free pickup and a full refund.</p>
       </div>
@@ -324,6 +327,7 @@
   </div>
 
   <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
   <script src="{% static 'js/cart.js' %}"></script>
   <script src="{% static 'js/product_detail.js' %}"></script>
   <script>

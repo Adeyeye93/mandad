@@ -1,12 +1,16 @@
 import json
+import logging
+
 from django.shortcuts import render
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 
 from products.models import Product
 from .models import QuoteRequest, QuoteItem
+
+logger = logging.getLogger(__name__)
 
 
 def quote_cart(request):
@@ -61,15 +65,15 @@ def quote_cart(request):
                 continue
 
         try:
-            send_mail(
+            EmailMessage(
                 subject=f"[Mandad] New Quote Request — {qr.ref_number}",
-                message=f"Ref: {qr.ref_number}\nFrom: {qr.first_name} {qr.last_name}\nEmail: {qr.email}\nPhone: {qr.phone}\nItems: {len(cart_items)}",
+                body=f"Ref: {qr.ref_number}\nFrom: {qr.first_name} {qr.last_name}\nEmail: {qr.email}\nPhone: {qr.phone}\nItems: {len(cart_items)}",
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.ADMIN_EMAIL],
-                fail_silently=True,
-            )
+                to=[settings.ADMIN_EMAIL],
+                reply_to=[qr.email] if qr.email else None,
+            ).send(fail_silently=False)
         except Exception:
-            pass
+            logger.exception("Failed to send quote request notification email for quote #%s", qr.pk)
 
         return render(request, 'quotes/quote_success.html', {'quote': qr})
 

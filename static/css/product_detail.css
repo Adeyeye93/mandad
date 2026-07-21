@@ -257,6 +257,7 @@
       .tabs-bar{gap:4px;}
     }
     @media(max-width:480px){
+      .nav-cta .btn-outline:not(:only-child), .nav-cta .btn-nav-outline:not(:only-child) { display: none; }
       nav,.breadcrumb-bar{padding-left:16px;padding-right:16px;}
       .nav-logo img{height:34px;}
       .gallery,.product-info,.tabs-bar,.tab-panel,.related-section{padding-left:16px;padding-right:16px;}

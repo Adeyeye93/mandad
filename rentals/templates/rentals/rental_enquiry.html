@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rental Enquiry{% if product %} — {{ product.name }}{% endif %} — Mandad Medical Supply</title>
-  <meta name="description" content="Submit a rental enquiry for medical equipment. Free delivery throughout Northern Virginia." />
+  <meta name="description" content="Submit a rental enquiry for medical equipment. Delivery available throughout Northern Virginia." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
@@ -34,7 +34,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
 
-      <div class="topbar-badge">Free Delivery on Rentals</div>
+      <div class="topbar-badge">Delivery Available on Rentals</div>
     </div>
   </div>
 
@@ -43,6 +43,9 @@
     <a href="{% url 'core:home' %}" class="nav-logo">
       <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
     </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
     <form method="get" action="{% url 'products:list' %}" class="nav-search">
       <input type="text" name="q" class="nav-search-input" placeholder="Search products…" />
       <button type="submit" class="nav-search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
@@ -159,8 +162,8 @@
               <div class="delivery-opts">
                 <div class="delivery-opt selected" onclick="selectDelivery(this)">
                   <div class="delivery-radio"><div class="delivery-radio-dot"></div></div>
-                  <div><div class="delivery-opt-name">Home Delivery &amp; Setup</div><div class="delivery-opt-sub">Free — we deliver and set up in your home</div></div>
-                  <div class="delivery-opt-price">Free</div>
+                  <div><div class="delivery-opt-name">Home Delivery &amp; Setup</div><div class="delivery-opt-sub">We deliver and set up in your home — cost depends on your location</div></div>
+                  <div class="delivery-opt-price">Varies</div>
                   <input type="radio" name="delivery_method" value="delivery" checked style="display:none;" />
                 </div>
                 <div class="delivery-opt" onclick="selectDelivery(this)">
@@ -223,6 +226,7 @@
     }
   </script>
 
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
   <script src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>
