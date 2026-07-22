@@ -55,6 +55,7 @@
       <li><a href="{% url 'products:list' %}" class="nav-link active">Products</a></li>
       <li><a href="{% url 'rentals:list' %}"  class="nav-link">Rentals</a></li>
       <li><a href="{% url 'core:about' %}"    class="nav-link">About</a></li>
+      <li><a href="{% url 'core:financing' %}" class="nav-link">Financing</a></li>
       <li><a href="{% url 'core:accra' %}"    class="nav-link">Accra Branch</a></li>
       <li><a href="{% url 'core:contact' %}"  class="nav-link">Contact</a></li>
     </ul>
@@ -117,7 +118,6 @@
       <div class="gallery-trust">
         <div class="g-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>1-Year Warranty</div>
         <div class="g-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Delivery Available</div>
-        <div class="g-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>30-Day Returns</div>
       </div>
     </div>
 
@@ -218,9 +218,7 @@
 
       <div class="delivery-info">
         <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="di-text"><strong>Delivery available</strong> <span>— Northern Virginia, DC, and Maryland; cost depends on your location</span></div></div>
-        <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="di-text"><strong>Delivery in 3–5 business days</strong> <span>— in-home setup included</span></div></div>
-        <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/></svg></div><div class="di-text"><strong>30-day returns</strong> <span>— no restocking fee</span></div></div>
-        <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="di-text"><strong>Medicare billing available</strong> <span>— ask us about coverage</span></div></div>
+        <div class="di-row"><div class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="di-text"><strong>Delivery scheduled around your availability</strong> <span>— in-home setup included</span></div></div>
       </div>
     </div>
   </div>
@@ -231,7 +229,7 @@
       <button class="tab-btn active" onclick="switchTab('description')">Description</button>
       <button class="tab-btn" onclick="switchTab('specs')">Specifications</button>
       <button class="tab-btn" onclick="switchTab('reviews')">Reviews ({{ reviews.count }})</button>
-      <button class="tab-btn" onclick="switchTab('shipping')">Delivery & Returns</button>
+      <button class="tab-btn" onclick="switchTab('shipping')">Delivery Info</button>
     </div>
 
     <!-- Description -->
@@ -286,8 +284,6 @@
       <div class="desc-content">
         <h3>Delivery Information</h3>
         <p>We offer in-home delivery and setup throughout Northern Virginia, including Woodbridge, Manassas, Stafford, Dumfries, Prince William County, Fairfax County, and surrounding areas. Delivery cost depends on your location.</p>
-        <h3>Returns Policy</h3>
-        <p>We offer a 30-day return policy with no restocking fee. Contact us within 30 days of delivery and we will arrange free pickup and a full refund.</p>
       </div>
     </div>
   </div>

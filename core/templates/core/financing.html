@@ -1,0 +1,239 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financing — Mandad Medical Supply</title>
+  <meta name="description" content="Flexible financing solutions for durable medical equipment, including CareCredit acceptance. Personalized payment plans, competitive rates, and a fast application process." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/financing.css' %}" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+      14535 Jefferson Davis Highway, Woodbridge, VA 22191
+      <div class="topbar-sep"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Mon–Fri 9AM–6PM · Sat 10AM–4PM
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        (703) 910-6264
+      </div>
+      <a href="https://www.facebook.com/profile.php?id=61566352520226" target="_blank" rel="noopener" class="topbar-social" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/mandadmedicalsupply/" target="_blank" rel="noopener" class="topbar-social" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <div class="topbar-badge">Delivery Available</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="{% url 'core:home' %}" class="nav-logo">
+      <img src="{% static 'img/logo.webp' %}" alt="Mandad Medical Supply" style="height:44px;width:auto;" />
+    </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <form method="get" action="{% url 'products:list' %}" class="nav-search">
+      <input type="text" name="q" class="nav-search-input" placeholder="Search products…" />
+      <button type="submit" class="nav-search-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </form>
+    <ul class="nav-links">
+      <li><a href="{% url 'core:home' %}"     class="nav-link">Home</a></li>
+      <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
+      <li><a href="{% url 'rentals:list' %}"  class="nav-link">Rentals</a></li>
+      <li><a href="{% url 'core:about' %}"    class="nav-link">About</a></li>
+      <li><a href="{% url 'core:financing' %}" class="nav-link active">Financing</a></li>
+      <li><a href="{% url 'core:accra' %}"    class="nav-link">Accra Branch</a></li>
+      <li><a href="{% url 'core:contact' %}"  class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="{% url 'core:contact' %}" class="btn-teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        Contact Us
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ PAGE HERO ═══════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag">
+        <div class="page-hero-dot"></div>
+        Healthcare Financing
+      </div>
+      <h1>Financing</h1>
+      <p>At Mandad Medical, we prioritize your health and well-being. We understand that medical expenses can sometimes create unexpected financial burdens — that's why we offer flexible financing solutions to ensure you receive the care you need without delay.</p>
+      <div class="page-hero-actions">
+        <a href="{% url 'core:contact' %}" class="btn-hero-white">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Start Your Application Today
+        </a>
+        <a href="#how-it-works" class="btn-hero-outline">How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ INTRO ═══════════════ -->
+  <section class="fin-intro">
+    <div class="fin-intro-inner reveal">
+      <div class="section-label">Top Quality Medical Supplies</div>
+      <h2>Supporting Your Health Journey</h2>
+      <p>Everyone deserves access to quality healthcare without financial stress. Our financing options are designed to empower you to make informed healthcare decisions while managing your budget effectively.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FINANCING OPTIONS ═══════════════ -->
+  <section class="fin-features">
+    <div class="fin-features-header reveal">
+      <div class="section-label">What We Offer</div>
+      <h2>Our Financing Options Include</h2>
+    </div>
+    <div class="fin-features-grid">
+
+      <div class="fin-feature-card reveal">
+        <div class="fin-feature-num">1</div>
+        <div class="fin-feature-title">Personalized Payment Plans</div>
+        <div class="fin-feature-desc">
+          <p>Tailored to fit your budget and healthcare needs.</p>
+          <p>Choose from flexible repayment schedules that suit your financial situation.</p>
+        </div>
+      </div>
+
+      <div class="fin-feature-card reveal reveal-delay-1">
+        <div class="fin-feature-num">2</div>
+        <div class="fin-feature-title">Competitive Rates</div>
+        <div class="fin-feature-desc">
+          <p>We offer competitive interest rates to make healthcare financing affordable.</p>
+          <p>Transparent terms and conditions, so you know exactly what to expect.</p>
+        </div>
+      </div>
+
+      <div class="fin-feature-card reveal reveal-delay-2">
+        <div class="fin-feature-num">3</div>
+        <div class="fin-feature-title">Easy Application Process</div>
+        <div class="fin-feature-desc">
+          <p>Quick and hassle-free online application.</p>
+          <p>Fast approval to get you started on your treatment journey promptly.</p>
+        </div>
+      </div>
+
+      <div class="fin-feature-card is-carecredit reveal">
+        <div class="fin-feature-num">4</div>
+        <div class="fin-feature-title">Acceptance of CareCredit</div>
+        <div class="fin-feature-desc">
+          <p>We proudly accept CareCredit, a healthcare credit card designed to help you finance your health, wellness, and personal care needs.</p>
+          <p>Enjoy special financing options with convenient monthly payments that fit your budget.</p>
+        </div>
+      </div>
+
+      <div class="fin-feature-card reveal reveal-delay-1">
+        <div class="fin-feature-num">5</div>
+        <div class="fin-feature-title">Supportive Customer Service</div>
+        <div class="fin-feature-desc">
+          <p>Dedicated team to guide you through the financing process.</p>
+          <p>Clear explanations and assistance with any questions you may have.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ CARECREDIT SPOTLIGHT ═══════════════ -->
+  <section class="fin-carecredit">
+    <div class="fin-carecredit-inner reveal">
+      <div class="fin-carecredit-img">
+        <img src="{% static 'img/brand/credit_care.webp' %}" alt="CareCredit" />
+      </div>
+      <div class="fin-carecredit-body">
+        <div class="section-label">Now Accepting</div>
+        <h3>CareCredit</h3>
+        <p>CareCredit is a healthcare credit card designed to help you finance your health, wellness, and personal care needs. Enjoy special financing options with convenient monthly payments that fit your budget — ask our team for details when you visit or call.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+  <section class="how-section" id="how-it-works">
+    <div class="how-header reveal">
+      <div class="section-label">Simple Process</div>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">From application to treatment in three simple steps</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item reveal">
+        <div class="step-num">1</div>
+        <div class="step-title">Apply Online</div>
+        <p class="step-desc">Fill out our simple online application form.</p>
+      </div>
+      <div class="step-item reveal reveal-delay-1">
+        <div class="step-num">2</div>
+        <div class="step-title">Receive Approval</div>
+        <p class="step-desc">Once your application is reviewed, you'll receive approval promptly.</p>
+      </div>
+      <div class="step-item reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <div class="step-title">Begin Treatment</div>
+        <p class="step-desc">With financing secured, you can proceed with your medical procedures or purchase medical equipment without delay.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ WHY CHOOSE ═══════════════ -->
+  <section class="fin-why">
+    <div class="fin-why-inner reveal">
+      <h2>Why Choose Mandad Medical Financing?</h2>
+      <p>At Mandad Medical, we believe everyone should have access to quality healthcare without financial stress. Our financing options, including CareCredit acceptance, are designed to empower you to make informed healthcare decisions while managing your budget effectively.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="fin-cta">
+    <div class="fin-cta-tag">Supporting Your Health Journey</div>
+    <h2>Start Your Application Today!</h2>
+    <p>Talk to our team about which financing option fits your situation best — including CareCredit. No pressure, just honest guidance.</p>
+    <div class="fin-cta-actions">
+      <a href="{% url 'core:contact' %}" class="btn-cta-white">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        Apply Now
+      </a>
+      <a href="tel:+17039106264" class="btn-cta-outline">Call (703) 910-6264</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 Mandad Medical Supply LLC. All rights reserved. Woodbridge, Virginia.</p>
+      <div class="footer-links-row">
+        <a href="{% url 'core:about' %}"     class="footer-link-sm">About Us</a>
+        <a href="{% url 'products:list' %}"  class="footer-link-sm">Products</a>
+        <a href="{% url 'rentals:list' %}"   class="footer-link-sm">Rentals</a>
+        <a href="{% url 'core:financing' %}" class="footer-link-sm">Financing</a>
+        <a href="{% url 'core:contact' %}"   class="footer-link-sm">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="{% static 'js/financing.js' %}"></script>
+  <script src="{% static 'js/mobile-nav.js' %}"></script>
+  <script src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>

@@ -60,6 +60,7 @@
       <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
       <li><a href="{% url 'rentals:list' %}"  class="nav-link">Rentals</a></li>
       <li><a href="{% url 'core:about' %}"    class="nav-link active">About</a></li>
+      <li><a href="{% url 'core:financing' %}" class="nav-link">Financing</a></li>
       <li><a href="{% url 'core:accra' %}"    class="nav-link">Accra Branch</a></li>
       <li><a href="{% url 'core:contact' %}"  class="nav-link">Contact</a></li>
     </ul>
@@ -228,11 +229,11 @@
         <div class="diff-card reveal">
           <div class="diff-card-icon" style="background:rgba(147,51,234,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
           <div class="diff-card-title">Flexible Rental Plans</div>
-          <div class="diff-card-desc">Monthly rental plans with the option to apply rental payments toward a purchase. We work with your budget.</div>
+          <div class="diff-card-desc">Weekly, monthly, and long-term rental plans on our full range of equipment. We work with your budget.</div>
         </div>
         <div class="diff-card reveal reveal-delay-1">
           <div class="diff-card-icon" style="background:rgba(16,185,129,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <div class="diff-card-title">Insurance &amp; Medicare Navigation</div>
+          <div class="diff-card-title">Insurance Navigation</div>
           <div class="diff-card-desc">We have handled hundreds of claims and know how to work through the process efficiently.</div>
         </div>
         <div class="diff-card reveal reveal-delay-2">
@@ -266,6 +267,7 @@
         <a href="{% url 'core:about' %}"    class="footer-link-sm">About Us</a>
         <a href="{% url 'products:list' %}" class="footer-link-sm">Products</a>
         <a href="{% url 'rentals:list' %}"  class="footer-link-sm">Rentals</a>
+        <a href="{% url 'core:financing' %}" class="footer-link-sm">Financing</a>
         <a href="{% url 'core:contact' %}"  class="footer-link-sm">Contact</a>
       </div>
     </div>

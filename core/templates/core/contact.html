@@ -55,6 +55,7 @@
       <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
       <li><a href="{% url 'rentals:list' %}"  class="nav-link">Rentals</a></li>
       <li><a href="{% url 'core:about' %}"    class="nav-link">About</a></li>
+      <li><a href="{% url 'core:financing' %}" class="nav-link">Financing</a></li>
       <li><a href="{% url 'core:accra' %}"    class="nav-link">Accra Branch</a></li>
       <li><a href="{% url 'core:contact' %}"  class="nav-link active">Contact</a></li>
     </ul>
@@ -126,7 +127,7 @@
           <button class="enquiry-tab active" onclick="setTab(this)" data-type="general">General Enquiry</button>
           <button class="enquiry-tab" onclick="setTab(this)" data-type="quote">Product Quote</button>
           <button class="enquiry-tab" onclick="setTab(this)" data-type="rental">Rental Enquiry</button>
-          <button class="enquiry-tab" onclick="setTab(this)" data-type="insurance">Insurance / Medicare</button>
+          <button class="enquiry-tab" onclick="setTab(this)" data-type="insurance">Insurance</button>
           <button class="enquiry-tab" onclick="setTab(this)" data-type="repair">Repair & Service</button>
         </div>
 
@@ -153,7 +154,7 @@
                 <option>Lift Chairs</option><option>Power Scooters</option><option>Power Wheelchairs</option>
                 <option>Manual Wheelchairs</option><option>Hospital Beds</option><option>Walkers & Rollators</option>
                 <option>Bath Safety Equipment</option><option>Oxygen Therapy</option><option>Equipment Rental</option>
-                <option>Medicare / Insurance Billing</option><option>Repair & Maintenance</option><option>Other</option>
+                <option>Insurance Billing</option><option>Repair & Maintenance</option><option>Other</option>
               </select>
             </div>
             <div class="form-group full"><label class="form-label">Your Message <span>*</span></label><textarea name="message" class="form-textarea" placeholder="Tell us how we can help…" required></textarea></div>
@@ -223,6 +224,7 @@
         <a href="{% url 'core:about' %}"    class="footer-link-sm">About Us</a>
         <a href="{% url 'products:list' %}" class="footer-link-sm">Products</a>
         <a href="{% url 'rentals:list' %}"  class="footer-link-sm">Rentals</a>
+        <a href="{% url 'core:financing' %}" class="footer-link-sm">Financing</a>
         <a href="{% url 'core:contact' %}"  class="footer-link-sm">Contact</a>
       </div>
     </div>

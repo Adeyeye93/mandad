@@ -8,7 +8,7 @@ class Lead(models.Model):
         ('general',   'General Enquiry'),
         ('quote',     'Product Quote'),
         ('rental',    'Rental Enquiry'),
-        ('insurance', 'Insurance / Medicare'),
+        ('insurance', 'Insurance'),
         ('repair',    'Repair & Service'),
     ]
     STATUS_CHOICES = [

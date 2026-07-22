@@ -55,6 +55,7 @@
       <li><a href="{% url 'products:list' %}" class="nav-link">Products</a></li>
       <li><a href="{% url 'rentals:list' %}"  class="nav-link active">Rentals</a></li>
       <li><a href="{% url 'core:about' %}"    class="nav-link">About</a></li>
+      <li><a href="{% url 'core:financing' %}" class="nav-link">Financing</a></li>
       <li><a href="{% url 'core:accra' %}"    class="nav-link">Accra Branch</a></li>
       <li><a href="{% url 'core:contact' %}"  class="nav-link">Contact</a></li>
     </ul>
@@ -104,7 +105,7 @@
     <div style="text-align:center;margin-bottom:8px;" class="reveal">
       <div class="section-label">Simple Process</div>
       <h2 class="section-title">How Renting Works</h2>
-      <p class="section-sub">From enquiry to delivery in as little as 24 hours</p>
+      <p class="section-sub">We schedule delivery around your availability</p>
     </div>
     <div class="steps-grid">
       <div class="step-item reveal"><div class="step-num">1</div><div class="step-title">Choose Equipment</div><p class="step-desc">Browse our rental catalogue and select what fits your needs and budget.</p></div>
@@ -118,7 +119,7 @@
   <div class="benefits-bar">
     <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><div class="benefit-name">Delivery & Pickup Available</div><div class="benefit-sub">Cost depends on your location</div></div></div>
     <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="benefit-name">Fully Maintained</div><div class="benefit-sub">Repairs included at no cost</div></div></div>
-    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div><div><div class="benefit-name">Apply Toward Purchase</div><div class="benefit-sub">Rent payments count toward buying</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div><div><div class="benefit-name">No Long-Term Contract</div><div class="benefit-sub">Cancel anytime with 30 days notice</div></div></div>
     <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="benefit-name">Flexible Duration</div><div class="benefit-sub">Weekly, monthly, or long-term</div></div></div>
     <div class="benefit-item"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.18 2 2 0 012.96 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg></div><div><div class="benefit-name">Friendly Support</div><div class="benefit-sub">Mon–Fri 9AM–6PM · Sat 10AM–4PM</div></div></div>
   </div>
@@ -226,9 +227,9 @@
       <div class="faq-header reveal"><div class="section-label">Common Questions</div><h2 class="section-title">Rental FAQs</h2></div>
       <div class="faq-list reveal">
         <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What is the minimum rental period?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Our minimum rental period is one week. Most customers rent monthly, which offers the best value.</div></div>
-        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How does delivery and pickup work?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Delivery and pickup are free throughout Northern Virginia. Our team delivers, sets up the equipment in your home, and walks you through how to use it.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How does delivery and pickup work?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Delivery and pickup are available throughout Northern Virginia — cost depends on your location. Our team delivers, sets up the equipment in your home, and walks you through how to use it.</div></div>
         <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What if the equipment needs repair during my rental?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">All repairs and maintenance are fully covered during your rental at no extra cost.</div></div>
-        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I apply my rental payments toward a purchase?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. If you decide to purchase the item you are renting, we can apply a portion of your rental payments toward the purchase price.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I extend my rental period?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. Just let us know before your current rental period ends and we will extend it for you — no need to return and re-rent the equipment.</div></div>
         <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How do I end my rental?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">You can end your rental at any time with 30 days notice. We schedule a convenient pickup window. No early termination fees.</div></div>
       </div>
     </div>
@@ -254,6 +255,7 @@
         <a href="{% url 'core:about' %}"    class="footer-link-sm">About Us</a>
         <a href="{% url 'products:list' %}" class="footer-link-sm">Products</a>
         <a href="{% url 'rentals:list' %}"  class="footer-link-sm">Rentals</a>
+        <a href="{% url 'core:financing' %}" class="footer-link-sm">Financing</a>
         <a href="{% url 'core:contact' %}"  class="footer-link-sm">Contact</a>
       </div>
     </div>

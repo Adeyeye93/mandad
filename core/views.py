@@ -34,6 +34,10 @@ def about(request):
     return render(request, 'core/about.html', ctx)
 
 
+def financing(request):
+    return render(request, 'core/financing.html', {})
+
+
 def contact(request):
     if request.method == 'POST':
         lead = Lead(
